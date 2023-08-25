@@ -24,6 +24,41 @@
         // et bien retourner le tableau photographers seulement une fois récupéré
         return ({
             photographers: [...photographers, ...photographers, ...photographers]})
+
+            // async function photographers (){
+
+            //     const array = [
+            //         {
+            //             id: 1,
+            //             nom: "Jean",
+            //             prenom: "Michel"
+            //         },
+            //         {
+            //             id: 2,
+            //             nom: "Jean",
+            //             prenom: "Michel"
+            //         }
+            //     ]
+            
+            //     const name = "Jean";
+            //     return {
+            //         name: name,
+            //         listPhotographers: array
+            //     }
+            // }
+            
+            // async function listPhotos(){
+                
+            //     const {listPhotographers }= await photographers();
+            //     const {name }= await photographers();
+            
+            
+            //     console.log(listPhotographers, name);
+            // }
+            
+            // listPhotos()
+
+
     }
 
     async function displayData(photographers) {
