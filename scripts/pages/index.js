@@ -1,10 +1,11 @@
+//fetches photographers' data and picture/video properties
 async function getPhotographers() {
-  // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
-  // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-  return fetch("../data/photographer.json")
+  return fetch("../data/photographers.json")
     .then((res) => res.json())
     .catch(console.error);
 
+  // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
+  // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
   //   let photographers = [
   //     {
   //       name: "Ma data test",
@@ -32,6 +33,7 @@ async function getPhotographers() {
   //   };
 }
 
+//displays all the photographers' info in the DOM from a set
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
@@ -42,6 +44,7 @@ async function displayData(photographers) {
   });
 }
 
+//runs the fetch and display functions
 async function init() {
   // Récupère les datas des photographes
   const { photographers } = await getPhotographers();
