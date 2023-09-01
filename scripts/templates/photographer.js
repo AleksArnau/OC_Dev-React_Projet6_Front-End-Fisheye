@@ -5,16 +5,26 @@ function photographerTemplate(data) {
 
   function getUserCardDOM() {
     const articlePhotographer = document.createElement("article");
+
     const imgPicture = document.createElement("img");
     imgPicture.setAttribute("src", picture);
+
     const h2Name = document.createElement("h2");
     h2Name.textContent = name;
+
     const divDetails = document.createElement("div");
+    divDetails.setAttribute("class", "photographerDetails");
+
     const pLocation = document.createElement("p");
+    pLocation.setAttribute("class", "photographerLocation");
     pLocation.textContent = city + ", " + country;
+
     const pTagline = document.createElement("p");
+    pTagline.setAttribute("class", "photographerTagline");
     pTagline.textContent = tagline;
+
     const pPrice = document.createElement("p");
+    pPrice.setAttribute("class", "photographerPrice");
     pPrice.textContent = price + "€/jour";
 
     articlePhotographer.appendChild(imgPicture);
