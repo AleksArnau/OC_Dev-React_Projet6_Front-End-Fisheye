@@ -26,7 +26,6 @@ async function getPhotographer(intPhotographerId) {
 
 //displays the photographer's info in the DOM
 async function displayData(photographer) {
-  console.log(photographer);
   const photographersSection = document.querySelector(
     ".select_photographer_section"
   );
@@ -51,9 +50,7 @@ async function displayPhotos(photos) {
 
 //runs the fetch and display functions
 async function init(intPhotographerId) {
-  // Récupère les datas des photographes
   const objPhotographerData = await getPhotographer(intPhotographerId);
-  console.log(objPhotographerData);
 
   displayData(objPhotographerData.photographers[0]);
   displayPhotos(objPhotographerData.media);
