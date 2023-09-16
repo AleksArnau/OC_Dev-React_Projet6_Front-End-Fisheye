@@ -29,22 +29,23 @@ async function displayData(photographer) {
   const photographersSection = document.querySelector(
     ".select_photographer_section"
   );
+  const mediaSection = document.querySelector(".portfolio_section");
 
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserCardDOM();
   photographersSection.appendChild(userCardDOM);
 }
 
-//displays the photographer's photos in the DOM
-async function displayPhotos(photos) {
-  console.log(photos);
+//displays the photographer's media in the DOM
+async function displayMedia(media) {
+  console.log(media);
   const portfolioSection = document.querySelector(".portfolio_section");
 
-  photos.forEach((photo) => {
-    console.log(photo);
-    const photoModel = photoTemplate(photo);
-    const photoCardDOM = photoModel.getPhotoCardDOM();
-    portfolioSection.appendChild(photoCardDOM);
+  media.forEach((element) => {
+    console.log(element);
+    const mediaModel = mediaTemplate(element);
+    const mediaCardDOM = mediaModel.getMediaCardDOM();
+    portfolioSection.appendChild(mediaCardDOM);
   });
 }
 
@@ -53,7 +54,7 @@ async function init(intPhotographerId) {
   const objPhotographerData = await getPhotographer(intPhotographerId);
 
   displayData(objPhotographerData.photographers[0]);
-  displayPhotos(objPhotographerData.media);
+  displayMedia(objPhotographerData.media);
 }
 
 init(intPhotographerId);

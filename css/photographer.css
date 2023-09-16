@@ -82,7 +82,7 @@ form input {
   margin-top: 100px;
 }
 
-.articlePhoto {
+.articleMedia {
   justify-self: center;
   display: flex;
   justify-content: center;
@@ -90,7 +90,7 @@ form input {
   flex-direction: column;
 }
 
-.photoLink {
+.linkImage {
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -98,14 +98,15 @@ form input {
   flex-direction: column;
 }
 
-.photoImg {
+.mediaImg {
   height: 300px;
   width: 350px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-.photoDetails {
+
+.mediaDetails {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -114,13 +115,13 @@ form input {
   line-height: 0;
 }
 
-.photoH3 {
+.mediaH3 {
   color: #d3573c;
   font-size: 18px;
   line-height: 0;
 }
 
-.photoLikes {
+.mediaLikes {
   color: #901c1c;
   font-size: 13px;
 }
