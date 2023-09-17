@@ -3,20 +3,22 @@ function photographerTemplate(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
+  const divPictureFrame = document.createElement("div");
+  divPictureFrame.setAttribute("class", "photographerImgFrame");
+
+  const imgPicture = document.createElement("img");
+  imgPicture.setAttribute("class", "photographerImg");
+  imgPicture.setAttribute("alt", `${data.name}'s portrait`);
+  imgPicture.setAttribute("src", picture);
+
+  divPictureFrame.appendChild(imgPicture);
+
   function getUserCardDOM() {
-    const articlePhotographer = document.createElement("article");
-    articlePhotographer.setAttribute("class", "photographerArticle");
+    const divPhotographer = document.createElement("div");
+    divPhotographer.setAttribute("class", "photographerDiv");
 
-    const linkPhotographer = document.createElement("a");
-    linkPhotographer.setAttribute("href", `./photographer.html?id=${id}`);
-    linkPhotographer.setAttribute("class", "photographerLink");
-
-    const imgPicture = document.createElement("img");
-    imgPicture.setAttribute("class", "photographerImg");
-    imgPicture.setAttribute("src", picture);
-
-    const h2Name = document.createElement("h2");
-    h2Name.setAttribute("class", "photographerH2");
+    const h2Name = document.createElement("h1");
+    h2Name.setAttribute("class", "photographerH1");
     h2Name.textContent = name;
 
     const divDetails = document.createElement("div");
@@ -30,58 +32,13 @@ function photographerTemplate(data) {
     pTagline.setAttribute("class", "photographerTagline");
     pTagline.textContent = tagline;
 
-    const pPrice = document.createElement("p");
-    pPrice.setAttribute("class", "photographerPrice");
-    pPrice.textContent = price + "€/jour";
-
-    articlePhotographer.appendChild(linkPhotographer);
-    articlePhotographer.appendChild(divDetails);
-    linkPhotographer.appendChild(imgPicture);
-    linkPhotographer.appendChild(h2Name);
+    divPhotographer.appendChild(h2Name);
+    divPhotographer.appendChild(divDetails);
     divDetails.appendChild(pLocation);
     divDetails.appendChild(pTagline);
-    divDetails.appendChild(pPrice);
 
-    return articlePhotographer;
+    return divPhotographer;
   }
-  return { name, picture, getUserCardDOM };
-}
 
-function photoTemplate(data) {
-  const { id, photographerId, title, image, likes, date, price } = data;
-
-  const picture = `assets/images/${image}`;
-
-  function getPhotoCardDOM() {
-    const articlePhoto = document.createElement("article");
-    articlePhoto.setAttribute("class", "articlePhoto");
-
-    const linkPhoto = document.createElement("a");
-    linkPhoto.setAttribute("href", `./photo.html?id=${id}`);
-    linkPhoto.setAttribute("class", "photoLink");
-
-    const imgPicture = document.createElement("img");
-    imgPicture.setAttribute("class", "photoImg");
-    imgPicture.setAttribute("src", picture);
-
-    const divDetails = document.createElement("div");
-    divDetails.setAttribute("class", "photoDetails");
-
-    const h3Title = document.createElement("h3");
-    h3Title.setAttribute("class", "photoH3");
-    h3Title.textContent = title;
-
-    const pLikes = document.createElement("p");
-    pLikes.setAttribute("class", "photoLikes");
-    pLikes.textContent = likes + " likes";
-
-    articlePhoto.appendChild(linkPhoto);
-    articlePhoto.appendChild(divDetails);
-    linkPhoto.appendChild(imgPicture);
-    divDetails.appendChild(h3Title);
-    divDetails.appendChild(pLikes);
-
-    return articlePhoto;
-  }
-  return { title, picture, getPhotoCardDOM };
+  return { name, picture, divPictureFrame, getUserCardDOM };
 }

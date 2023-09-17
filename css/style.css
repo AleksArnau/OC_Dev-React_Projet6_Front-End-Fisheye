@@ -10,7 +10,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 120px;
 }
 
 h1 {
@@ -27,7 +27,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 .photographerArticle {
@@ -52,12 +52,23 @@ h1 {
   line-height: 0;
 }
 
-.photographerImg {
-  height: 200px;
+.photographerImgFrame {
   width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  fill: #c4c4c4;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.photographerImg {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   flex-shrink: 0;
-  border-radius: 50%;
+  background: url(<path-to-image>),
+    lightgray 112px -34.731px / 57.605% 112.699% no-repeat;
 }
 
 .photographerDetails {
@@ -68,17 +79,22 @@ h1 {
   line-height: 0;
 }
 
+.photographerDetails p {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+
 .photographerLocation {
   color: #901c1c;
-  font-size: 13px;
+  font-size: 19px;
 }
 
 .photographerTagline {
   color: #000;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .photographerPrice {
   color: #757575;
-  font-size: 9px;
+  font-size: 12px;
 }

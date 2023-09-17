@@ -26,14 +26,18 @@ async function getPhotographer(intPhotographerId) {
 
 //displays the photographer's info in the DOM
 async function displayData(photographer) {
-  const photographersSection = document.querySelector(
-    ".select_photographer_section"
+  const photographersDetails = document.querySelector(
+    ".divPhotographerDetails"
   );
-  const mediaSection = document.querySelector(".portfolio_section");
+  const photographersPortrait = document.querySelector(
+    ".divPhotographerPortrait"
+  );
 
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserCardDOM();
-  photographersSection.appendChild(userCardDOM);
+  photographersDetails.appendChild(userCardDOM);
+
+  photographersPortrait.appendChild(photographerModel.divPictureFrame);
 }
 
 //displays the photographer's media in the DOM
