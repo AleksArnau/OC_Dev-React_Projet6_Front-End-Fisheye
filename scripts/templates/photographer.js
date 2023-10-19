@@ -1,7 +1,7 @@
 function photographerTemplate(data) {
   const { name, portrait, tagline, price, city, country, id } = data;
 
-  const picture = `assets/photographers/${portrait}`;
+  const path = `assets/photographers/${portrait}`;
 
   const divPictureFrame = document.createElement("div");
   divPictureFrame.setAttribute("class", "photographerImgFrame");
@@ -9,9 +9,27 @@ function photographerTemplate(data) {
   const imgPicture = document.createElement("img");
   imgPicture.setAttribute("class", "photographerImg");
   imgPicture.setAttribute("alt", `${data.name}'s portrait`);
-  imgPicture.setAttribute("src", picture);
+  imgPicture.setAttribute("src", path);
 
   divPictureFrame.appendChild(imgPicture);
+
+  const divPricing = document.createElement("div");
+  divPricing.setAttribute("class", "divPhotographerPricing");
+
+  let likes = 239009;//TODO add dynamic likes
+  const pLikes = document.createElement("p");
+  pLikes.setAttribute("class", "pLikes");
+  pLikes.textContent = likes + " ";
+  divPricing.appendChild(pLikes);
+
+  const iHeart = document.createElement("i");
+  iHeart.setAttribute("class", "fa-solid fa-heart");
+  pLikes.appendChild(iHeart);
+
+  const pPricing = document.createElement("p");
+  pPricing.setAttribute("class", "pPricing");
+  pPricing.textContent = price + "€ / jour";
+  divPricing.appendChild(pPricing);
 
   function getUserCardDOM() {
     const divPhotographer = document.createElement("div");
@@ -40,5 +58,5 @@ function photographerTemplate(data) {
     return divPhotographer;
   }
 
-  return { name, picture, divPictureFrame, getUserCardDOM };
+  return { name, path, divPictureFrame, divPricing, getUserCardDOM };
 }

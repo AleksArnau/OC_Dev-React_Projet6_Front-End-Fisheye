@@ -1,7 +1,7 @@
 function mediaTemplate(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
 
-  const mediaPath =
+  const path =
     data.image != null ? `assets/images/${image}` : `assets/videos/${video}`;
 
   function getMediaCardDOM() {
@@ -11,12 +11,12 @@ function mediaTemplate(data) {
     const assetType = data.image != null ? "img" : "video";
 
     const linkMedia = document.createElement("a");
-    linkMedia.setAttribute("href", `./${mediaPath}`);
+    linkMedia.setAttribute("href", `./${path}`);
     linkMedia.setAttribute("class", "mediaLink");
 
     const thumbnailMedia = document.createElement(assetType);
     thumbnailMedia.setAttribute("class", "mediaImg");
-    thumbnailMedia.setAttribute("src", mediaPath);
+    thumbnailMedia.setAttribute("src", path);
     thumbnailMedia.setAttribute("alt", `${title}`);
 
     const divDetails = document.createElement("div");
@@ -51,5 +51,5 @@ function mediaTemplate(data) {
 
     return articleMedia;
   }
-  return { title, mediaPath, getMediaCardDOM };
+  return { title, path, getMediaCardDOM };
 }

@@ -1,7 +1,7 @@
 function photographerTemplate(data) {
   const { name, portrait, tagline, price, city, country, id } = data;
 
-  const picture = `assets/photographers/${portrait}`;
+  const path = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
     const articlePhotographer = document.createElement("article");
@@ -18,7 +18,7 @@ function photographerTemplate(data) {
     const imgPicture = document.createElement("img");
     imgPicture.setAttribute("class", "photographerImg");
     imgPicture.setAttribute("alt", `${name}'s portrait`);
-    imgPicture.setAttribute("src", picture);
+    imgPicture.setAttribute("src", path);
 
     const h2Name = document.createElement("h2");
     h2Name.setAttribute("class", "photographerH2");
@@ -50,5 +50,5 @@ function photographerTemplate(data) {
 
     return articlePhotographer;
   }
-  return { name, picture, getUserCardDOM };
+  return { name, path, getUserCardDOM };
 }

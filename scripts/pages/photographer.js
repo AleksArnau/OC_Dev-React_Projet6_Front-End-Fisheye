@@ -32,12 +32,17 @@ async function displayData(photographer) {
   const photographersPortrait = document.querySelector(
     ".divPhotographerPortrait"
   );
+  const photographersPricing = document.querySelector(
+    ".divPhotographerPricing"
+  );
 
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserCardDOM();
   photographersDetails.appendChild(userCardDOM);
 
   photographersPortrait.appendChild(photographerModel.divPictureFrame);
+
+  photographersPricing.appendChild(photographerModel.divPricing);
 }
 
 //displays the photographer's media in the DOM
@@ -59,6 +64,8 @@ async function init(intPhotographerId) {
 
   displayData(objPhotographerData.photographers[0]);
   displayMedia(objPhotographerData.media);
+  //TODO, add total likes and pricing to an absolute div
+  //going to need info from both photographers and media
 }
 
 init(intPhotographerId);
