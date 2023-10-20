@@ -1,9 +1,5 @@
 #contact_modal {
   display: none;
-  position: fixed;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, 50%);
 }
 
 .photograph-header {
@@ -18,7 +14,8 @@
   color: white;
   padding: 11px;
   width: 170px;
-  height: 70px;
+  height: 69px;
+  flex-shrink: 0;
   border: none;
   background-color: #901c1c;
   border-radius: 5px;
@@ -35,6 +32,10 @@
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
 }
 
 .modal header {
@@ -47,9 +48,12 @@
 }
 
 .modal header h2 {
+  color: #000;
+  font-family: DM Sans;
   font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 form {
@@ -61,7 +65,11 @@ form {
 
 form label {
   color: #312e2e;
+  font-family: DM Sans;
   font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 form div {
@@ -77,6 +85,10 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+#contactMessage {
+  height: 170px;
 }
 
 .photograph-header {

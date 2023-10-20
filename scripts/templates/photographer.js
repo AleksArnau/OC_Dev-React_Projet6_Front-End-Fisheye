@@ -13,10 +13,10 @@ function photographerTemplate(data) {
 
   divPictureFrame.appendChild(imgPicture);
 
-  const divPricing = document.createElement("div");
+  const divPricing = document.createElement("div"); //TODO swap to html instead
   divPricing.setAttribute("class", "divPhotographerPricing");
 
-  let likes = 239009;//TODO add dynamic likes
+  let likes = 239009; //TODO add dynamic likes
   const pLikes = document.createElement("p");
   pLikes.setAttribute("class", "pLikes");
   pLikes.textContent = likes + " ";
@@ -58,5 +58,11 @@ function photographerTemplate(data) {
     return divPhotographer;
   }
 
-  return { name, path, divPictureFrame, divPricing, getUserCardDOM };
+  return {
+    name,
+    path,
+    divPictureFrame,
+    divPricing,
+    getUserCardDOM,
+  };
 }

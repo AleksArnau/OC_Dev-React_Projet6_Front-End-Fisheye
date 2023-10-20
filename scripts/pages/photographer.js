@@ -35,6 +35,7 @@ async function displayData(photographer) {
   const photographersPricing = document.querySelector(
     ".divPhotographerPricing"
   );
+  const h2PhotographerName = document.querySelector(".h2PhotographerName");
 
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserCardDOM();
@@ -43,6 +44,8 @@ async function displayData(photographer) {
   photographersPortrait.appendChild(photographerModel.divPictureFrame);
 
   photographersPricing.appendChild(photographerModel.divPricing);
+
+  h2PhotographerName.appendChild("<br>" + photographerModel.name);
 }
 
 //displays the photographer's media in the DOM
