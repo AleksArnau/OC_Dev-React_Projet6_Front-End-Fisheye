@@ -1,6 +1,6 @@
 function photographerTemplate(data) {
   const { name, portrait, tagline, price, city, country, id } = data;
-
+  console.log(name);
   const path = `assets/photographers/${portrait}`;
 
   const divPictureFrame = document.createElement("div");

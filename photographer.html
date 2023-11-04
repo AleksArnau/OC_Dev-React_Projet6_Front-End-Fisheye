@@ -14,7 +14,7 @@
     ></script>
     <title>Fisheye - photographe</title>
   </head>
-  <body>
+  <body id="body" onkeypress="handleEnter(event)">
     <header>
       <a href="./">
         <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
@@ -23,7 +23,11 @@
     <main id="main">
       <div class="photograph-header">
         <div class="divPhotographerDetails"></div>
-        <button class="contact_button" onclick="displayModal()" tabindex="0">
+        <button
+          class="contact_button btnModalOpen"
+          onclick="displayModal()"
+          tabindex="0"
+        >
           Contactez-moi
         </button>
         <div class="divPhotographerPortrait"></div>
@@ -36,13 +40,20 @@
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2 class="h2PhotographerName">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 class="h2ModalPhotographerName">Contactez-moi</h2>
+          <img
+            class="btnModalClose"
+            src="assets/icons/close.svg"
+            onclick="closeModal()"
+            aria-label="close"
+            tabindex="0"
+          />
         </header>
         <form>
           <div>
             <label for="contactFirstName">Prénom</label>
             <input
+              class="modalInput"
               type="text"
               minlength="2"
               maxlength="20"
@@ -52,6 +63,7 @@
           <div>
             <label for="contactLastName">Nom</label>
             <input
+              class="modalInput"
               type="text"
               id="contactLastName"
               minlength="2"
@@ -60,13 +72,18 @@
           </div>
           <div>
             <label for="contactEmail">Email</label>
-            <input type="email" id="contactEmail" />
+            <input class="modalInput" type="email" id="contactEmail" />
           </div>
           <div>
             <label for="contactMessage" minlength="2" maxlength="250"
               >Votre message</label
             >
-            <input type="text" id="contactMessage" />
+            <textarea
+              class="modalInput"
+              id="contactMessage"
+              rows="1"
+              cols="50"
+            ></textarea>
           </div>
           <button class="contact_button">Envoyer</button>
         </form>

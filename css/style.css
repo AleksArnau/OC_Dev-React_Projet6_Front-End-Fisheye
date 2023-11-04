@@ -1,5 +1,9 @@
 @import url("photographer.css");
 
+.noScroll {
+  overflow: hidden;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;

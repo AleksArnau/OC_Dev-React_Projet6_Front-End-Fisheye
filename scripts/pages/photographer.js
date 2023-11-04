@@ -35,7 +35,9 @@ async function displayData(photographer) {
   const photographersPricing = document.querySelector(
     ".divPhotographerPricing"
   );
-  const h2PhotographerName = document.querySelector(".h2PhotographerName");
+  const h2ModalPhotographerName = document.querySelector(
+    ".h2ModalPhotographerName"
+  );
 
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserCardDOM();
@@ -45,16 +47,15 @@ async function displayData(photographer) {
 
   photographersPricing.appendChild(photographerModel.divPricing);
 
-  h2PhotographerName.appendChild("<br>" + photographerModel.name);
+  h2ModalPhotographerName.textContent =
+    "Contactez-moi \r\n" + photographerModel.name;
 }
 
 //displays the photographer's media in the DOM
 async function displayMedia(media) {
-  console.log(media);
   const portfolioSection = document.querySelector(".portfolio_section");
 
   media.forEach((element) => {
-    console.log(element);
     const mediaModel = mediaTemplate(element);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     portfolioSection.appendChild(mediaCardDOM);
@@ -64,6 +65,8 @@ async function displayMedia(media) {
 //runs the fetch and display functions
 async function init(intPhotographerId) {
   const objPhotographerData = await getPhotographer(intPhotographerId);
+
+  console.log(objPhotographerData);
 
   displayData(objPhotographerData.photographers[0]);
   displayMedia(objPhotographerData.media);
