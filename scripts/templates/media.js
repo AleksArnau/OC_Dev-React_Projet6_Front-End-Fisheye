@@ -1,7 +1,7 @@
 function mediaTemplate(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
 
-  const path =
+  let path =
     data.image != null ? `assets/images/${image}` : `assets/videos/${video}`;
 
   function getMediaCardDOM() {
@@ -11,7 +11,7 @@ function mediaTemplate(data) {
     const assetType = data.image != null ? "img" : "video";
 
     const linkMedia = document.createElement("a");
-    linkMedia.setAttribute("href", `./${path}`);
+    linkMedia.setAttribute("src", path);
     linkMedia.setAttribute("class", "mediaLink");
 
     const thumbnailMedia = document.createElement(assetType);

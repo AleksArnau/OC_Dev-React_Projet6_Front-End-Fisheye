@@ -20,14 +20,10 @@
         <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
       /></a>
     </header>
-    <main id="main">
+    <main id="main" tabindex="-1">
       <div class="photograph-header">
         <div class="divPhotographerDetails"></div>
-        <button
-          class="contact_button btnModalOpen"
-          onclick="displayModal()"
-          tabindex="0"
-        >
+        <button class="contact_button btnModalOpen" tabindex="0">
           Contactez-moi
         </button>
         <div class="divPhotographerPortrait"></div>
@@ -38,13 +34,12 @@
       <!-- why are the sections declared as div -->
     </main>
     <div id="contact_modal">
-      <div class="modal">
+      <div class="modal" role="dialog">
         <header>
           <h2 class="h2ModalPhotographerName">Contactez-moi</h2>
           <img
             class="btnModalClose"
             src="assets/icons/close.svg"
-            onclick="closeModal()"
             aria-label="close"
             tabindex="0"
           />
@@ -89,10 +84,79 @@
         </form>
       </div>
     </div>
+    <div id="lightbox_modal">
+      <div class="lightbox" role="dialog">
+        <img
+          class="btnLightboxClose"
+          src="assets/icons/closeRed.svg"
+          aria-label="close"
+          tabindex="0"
+        />
+        <div class="divLightbox">
+          <button class="btnLightbox btnLeft">
+            <svg
+              width="96"
+              height="96"
+              viewBox="0 0 96 96"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_120_800)">
+                <path
+                  d="M61.6399 66.36L43.3199 48L61.6399 29.64L55.9999 24L31.9999 48L55.9999 72L61.6399 66.36Z"
+                  fill="#911C1C"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_120_800">
+                  <rect
+                    width="96"
+                    height="96"
+                    fill="white"
+                    transform="translate(96) rotate(90)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <div id="divLightbox" class="divLightbox"><img /></div>
+          <button class="btnLightbox btnRight">
+            <svg
+              width="96"
+              height="96"
+              viewBox="0 0 96 96"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_120_803)">
+                <path
+                  d="M34.3601 29.64L52.6801 48L34.3601 66.36L40.0001 72L64.0001 48L40.0001 24L34.3601 29.64Z"
+                  fill="#911C1C"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_120_803">
+                  <rect
+                    width="96"
+                    height="96"
+                    fill="white"
+                    transform="translate(0 96) rotate(-90)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+        <div class="divH3Lightbox">
+          <h3 id="h3Lightbox" class="h3Lightbox"></h3>
+        </div>
+      </div>
+    </div>
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/templates/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/mediaLightbox.js"></script>
     <!-- removed starting '/' on script links -->
   </body>
 </html>

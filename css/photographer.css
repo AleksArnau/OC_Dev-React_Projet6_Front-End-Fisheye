@@ -1,11 +1,12 @@
 #contact_modal {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .photograph-header {
@@ -26,6 +27,13 @@
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .modal {
@@ -173,6 +181,10 @@ form div {
   flex-direction: column;
 }
 
+.mediaLink {
+  cursor: pointer;
+}
+
 .mediaImg {
   height: 300px;
   width: 350px;
@@ -240,5 +252,93 @@ form div {
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
+  line-height: normal;
+}
+
+#lightbox_modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  width: 90%;
+  height: 90%;
+  flex-shrink: 0;
+  background-color: white;
+}
+
+.btnLightboxClose {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.btnLightbox {
+  cursor: pointer;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.btnLeft {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.btnRight {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.divLightbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgLightbox {
+  max-width: 85%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+.divH3Lightbox {
+  padding-right: 40px;
+  padding-left: 40px;
+  border-radius: 10px;
+  position: absolute;
+  left: 60px;
+  bottom: -60px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.h3Lightbox {
+  color: #901c1c;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
 }

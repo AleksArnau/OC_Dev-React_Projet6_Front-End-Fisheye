@@ -4,6 +4,15 @@
 let url = new URL(location.href);
 let intPhotographerId = parseInt(url.searchParams.get("id"));
 
+async function getPhotographerMedia() {
+  let url = new URL(location.href);
+  let intPhotographerId = parseInt(url.searchParams.get("id"));
+
+  const objPhotographerData = await getPhotographer(intPhotographerId);
+
+  return objPhotographerData.media;
+}
+
 //fetches a single photographer's data and photo data
 async function getPhotographer(intPhotographerId) {
   return fetch("../data/photographers.json")
@@ -62,6 +71,34 @@ async function displayMedia(media) {
   });
 }
 
+async function displayModalCall() {
+  let btnModalOpen = document.getElementsByClassName("btnModalOpen")[0];
+  console.log(btnModalOpen);
+  btnModalOpen.onclick = function () {
+    displayModal();
+    closeModalCall();
+  };
+}
+
+async function closeModalCall() {
+  let btnModalClose = document.getElementsByClassName("btnModalClose")[0];
+  btnModalClose.onclick = function () {
+    closeModal();
+  };
+}
+
+async function navigationLightboxCall(mediaList) {
+  let mediaLink = document.getElementsByClassName("mediaLink");
+  for (const media of mediaLink) {
+    media.addEventListener("click", (e) => {
+      let path = e.target.attributes.src.value;
+      let title = e.target.alt;
+      displayLightbox(path, title, mediaList);
+      console.log(mediaList);
+    });
+  }
+}
+
 //runs the fetch and display functions
 async function init(intPhotographerId) {
   const objPhotographerData = await getPhotographer(intPhotographerId);
@@ -72,6 +109,9 @@ async function init(intPhotographerId) {
   displayMedia(objPhotographerData.media);
   //TODO, add total likes and pricing to an absolute div
   //going to need info from both photographers and media
+
+  displayModalCall();
+  navigationLightboxCall(objPhotographerData.media);
 }
 
 init(intPhotographerId);
