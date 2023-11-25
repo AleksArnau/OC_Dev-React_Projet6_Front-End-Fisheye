@@ -12,18 +12,23 @@ function photographerTemplate(data) {
 
   divPictureFrame.appendChild(imgPicture);
 
-  const divPricing = document.createElement("div"); //TODO swap to html instead
+  const divPricing = document.createElement("div");
   divPricing.setAttribute("class", "divPhotographerPricing");
 
-  let likes = 239009; //TODO add dynamic likes
-  const pLikes = document.createElement("p");
-  pLikes.setAttribute("class", "pLikes");
-  pLikes.textContent = likes + " ";
-  divPricing.appendChild(pLikes);
+  let totalLikes = 0; //TODO add dynamic likes
+
+  const divTotalLikes = document.createElement("div");
+  divTotalLikes.setAttribute("class", "divTotalLikes");
+  divPricing.appendChild(divTotalLikes);
+
+  const pTotalLikes = document.createElement("p");
+  pTotalLikes.setAttribute("class", "pTotalLikes");
+  pTotalLikes.textContent = totalLikes;
+  divTotalLikes.appendChild(pTotalLikes);
 
   const iHeart = document.createElement("i");
   iHeart.setAttribute("class", "fa-solid fa-heart");
-  pLikes.appendChild(iHeart);
+  divTotalLikes.appendChild(iHeart);
 
   const pPricing = document.createElement("p");
   pPricing.setAttribute("class", "pPricing");

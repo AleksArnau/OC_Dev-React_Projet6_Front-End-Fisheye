@@ -31,15 +31,22 @@ function mediaTemplate(data) {
 
     const pLikes = document.createElement("p");
     pLikes.setAttribute("class", "mediaLikes");
-    if (likes === 1) {
-      // only 1 like is singular
-      pLikes.textContent = likes + " like";
-    } else {
-      pLikes.textContent = likes + " likes";
-    }
+    pLikes.textContent = likes;
+
+    //tallies the total likes
+    let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
+    totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + likes;
+
+    // if (likes === 1) {
+    //   // only 1 like is singular
+    //   pLikes.textContent = likes + " like";
+    // } else {
+    //   pLikes.textContent = likes + " likes";
+    // }
 
     const iLikes = document.createElement("i");
-    iLikes.setAttribute("class", "fa-solid fa-heart, likeIcon");
+    iLikes.setAttribute("class", "fa-solid fa-heart likeIcon");
+    iLikes.setAttribute("aria-label", "likes");
 
     articleMedia.appendChild(linkMedia);
     articleMedia.appendChild(divDetails);

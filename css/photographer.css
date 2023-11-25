@@ -212,6 +212,8 @@ form div {
 .divLikes {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   color: #901c1c;
   text-align: right;
   font-family: DM Sans;
@@ -223,12 +225,18 @@ form div {
 
 .mediaLikes {
   color: #901c1c;
-  font-size: 13px;
+  font-size: 24px;
+  margin: 0px;
+  margin-right: 6px;
 }
 
 .likeIcon {
-  width: 21px;
-  height: 24px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.liked {
+  color: red;
 }
 
 .divPhotographerPricing {
@@ -243,9 +251,11 @@ form div {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
-.divPhotographerPricing p {
+.divPhotographerPricing p,
+.divTotalLikes p {
   color: #000;
   text-align: center;
   font-family: DM Sans;
@@ -253,6 +263,21 @@ form div {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+.divTotalLikes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divTotalLikes p {
+  margin-right: 6px;
+}
+
+.divTotalLikes i {
+  font-size: 24px;
 }
 
 #lightbox_modal {

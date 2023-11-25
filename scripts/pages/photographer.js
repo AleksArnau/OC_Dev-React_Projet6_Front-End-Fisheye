@@ -71,6 +71,7 @@ async function displayMedia(media) {
   });
 }
 
+//opens the contact modal
 async function displayModalCall() {
   let btnModalOpen = document.getElementsByClassName("btnModalOpen")[0];
   console.log(btnModalOpen);
@@ -80,6 +81,7 @@ async function displayModalCall() {
   };
 }
 
+//closes the contact modal
 async function closeModalCall() {
   let btnModalClose = document.getElementsByClassName("btnModalClose")[0];
   btnModalClose.onclick = function () {
@@ -87,6 +89,7 @@ async function closeModalCall() {
   };
 }
 
+//surveys every media to open the corresponding lightbox
 async function navigationLightboxCall(mediaList) {
   let mediaLink = document.getElementsByClassName("mediaLink");
   for (const media of mediaLink) {
@@ -94,7 +97,29 @@ async function navigationLightboxCall(mediaList) {
       let path = e.target.attributes.src.value;
       let title = e.target.alt;
       displayLightbox(path, title, mediaList);
-      console.log(mediaList);
+    });
+  }
+}
+
+//toggle between liking or removing your like from media using innerHTML
+async function toggleLike() {
+  let mediaDivLikes = document.getElementsByClassName("divLikes");
+  let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
+  console.log(mediaDivLikes);
+  for (const divLike of mediaDivLikes) {
+    divLike.lastChild.addEventListener("click", (e) => {
+      divLike.lastChild.classList.toggle("liked");
+      if (divLike.lastChild.classList.contains("liked")) {
+        divLike.firstChild.innerHTML =
+          parseInt(divLike.firstChild.innerHTML) + 1;
+        totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + 1;
+      } else {
+        divLike.firstChild.innerHTML =
+          parseInt(divLike.firstChild.innerHTML) - 1;
+        totalLikes.innerHTML = parseInt(totalLikes.innerHTML) - 1;
+      }
+
+      console.log(divLike.firstChild);
     });
   }
 }
@@ -112,6 +137,7 @@ async function init(intPhotographerId) {
 
   displayModalCall();
   navigationLightboxCall(objPhotographerData.media);
+  toggleLike();
 }
 
 init(intPhotographerId);
