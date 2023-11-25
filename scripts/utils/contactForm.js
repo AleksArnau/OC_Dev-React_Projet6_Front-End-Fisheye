@@ -1,3 +1,4 @@
+//displays the modal and starts the eventlisteners to close it
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
@@ -12,7 +13,10 @@ function displayModal() {
   document.addEventListener(
     "keydown",
     (evt) => {
-      if (evt.key === "Escape") {
+      if (
+        evt.key === "Escape" ||
+        document.getElementById("main").getAttribute("aria-hidden") === "true"
+      ) {
         closeModal();
       }
     },
@@ -20,6 +24,7 @@ function displayModal() {
   );
 }
 
+//closes the modal and resets the aria properties
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
@@ -31,6 +36,7 @@ function closeModal() {
   document.getElementById("contact_modal").setAttribute("aria-hidden", "true");
 }
 
+//handles enter keypresses as clicks
 function handleEnter(e) {
   var keycode = e.keyCode ? e.keyCode : e.which;
   if (keycode == "13") {
