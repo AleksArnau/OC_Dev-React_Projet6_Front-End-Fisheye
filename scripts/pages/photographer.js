@@ -124,6 +124,28 @@ async function toggleLike() {
   }
 }
 
+//opens the sorting menu
+async function displayDropdownSort() {
+  let btnSortOpen = document.getElementsByClassName("btnSortOpen")[0];
+  console.log(btnSortOpen);
+  btnSortOpen.onclick = function () {
+    displaySort();
+    closeSortCall();
+  };
+}
+
+//closes the sorting menu after sorting
+async function closeSortCall() {
+  let btnsSortClose = document.querySelectorAll(".dropBtn");
+
+  for (let i = 0; i < btnsSortClose.length; i++) {
+    let btnSortClose = btnsSortClose[i];
+    btnSortClose.onclick = function () {
+      closeSort();
+    };
+  }
+}
+
 //runs the fetch and display functions
 async function init(intPhotographerId) {
   const objPhotographerData = await getPhotographer(intPhotographerId);
@@ -136,6 +158,7 @@ async function init(intPhotographerId) {
   //going to need info from both photographers and media
 
   displayModalCall();
+  displayDropdownSort();
   navigationLightboxCall(objPhotographerData.media);
   toggleLike();
 }

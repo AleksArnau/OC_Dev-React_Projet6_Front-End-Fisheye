@@ -51,3 +51,36 @@ firstFocusableElement.focus();
 
 // À appeler lorsque la modale est ouverte
 trapFocus(document.querySelector('#maModal'));
+
+
+insertAdjacentHTML(position, text);
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="gallery">
+
+    </div>
+
+</body>
+    <script>
+        const gallery = document.querySelector('.gallery');
+
+        data.forEach(element => {
+            gallery.insertAdjacentHTML('beforend', `
+                <div>
+
+                    <img src="${element.url}" />
+                    <p>${element.text}</p>
+
+                </diV>
+            `)
+        });
+    </script>
+</html>

@@ -158,6 +158,68 @@ form div {
   line-height: normal;
 }
 
+.sectionSort {
+  padding-top: 9px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.sectionSort p {
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.menuSort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.menuSort button {
+  cursor: pointer;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #901c1c;
+  border: 0px;
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.menuSort button svg {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+#sortDropdown {
+  position: absolute;
+}
+
+.menuSort div {
+  display: none;
+}
+
 .portfolio_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
