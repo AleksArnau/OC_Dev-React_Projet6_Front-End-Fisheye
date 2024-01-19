@@ -71,8 +71,6 @@ h1 {
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
-  background: url(<path-to-image>),
-    lightgray 112px -34.731px / 57.605% 112.699% no-repeat;
 }
 
 .photographerDetails {

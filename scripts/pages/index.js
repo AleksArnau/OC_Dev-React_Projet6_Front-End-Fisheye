@@ -39,8 +39,8 @@ async function displayData(photographers) {
 
   photographers.forEach((photographer) => {
     const photographerModel = photographerTemplate(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
+    // const userCardDOM = photographerModel.getUserCardDOM();
+    // photographersSection.appendChild(userCardDOM);
   });
 }
 

@@ -35,27 +35,27 @@ async function getPhotographer(intPhotographerId) {
 
 //displays the photographer's info in the DOM
 async function displayData(photographer) {
-  const photographersDetails = document.querySelector(
-    ".divPhotographerDetails"
-  );
-  const photographersPortrait = document.querySelector(
-    ".divPhotographerPortrait"
-  );
-  const photographersPricing = document.querySelector(
-    ".divPhotographerPricing"
-  );
+  // const photographersDetails = document.querySelector(
+  //   ".divPhotographerDetails"
+  // );
+  // const photographersPortrait = document.querySelector(
+  //   ".divPhotographerPortrait"
+  // );
+  // const photographersPricing = document.querySelector(
+  //   ".divPhotographerPricing"
+  // );
+
+  const photographerModel = photographerTemplate(photographer);
+  // const userCardDOM = photographerModel.getUserCardDOM();
+  // photographersDetails.appendChild(userCardDOM);
+
+  // photographersPortrait.appendChild(photographerModel.divPictureFrame);
+
+  // photographersPricing.appendChild(photographerModel.divPricing);
+
   const h2ModalPhotographerName = document.querySelector(
     ".h2ModalPhotographerName"
   );
-
-  const photographerModel = photographerTemplate(photographer);
-  const userCardDOM = photographerModel.getUserCardDOM();
-  photographersDetails.appendChild(userCardDOM);
-
-  photographersPortrait.appendChild(photographerModel.divPictureFrame);
-
-  photographersPricing.appendChild(photographerModel.divPricing);
-
   h2ModalPhotographerName.textContent =
     "Contactez-moi \r\n" + photographerModel.name;
 }
@@ -66,15 +66,14 @@ async function displayMedia(media) {
 
   media.forEach((element) => {
     const mediaModel = mediaTemplate(element);
-    const mediaCardDOM = mediaModel.getMediaCardDOM();
-    portfolioSection.appendChild(mediaCardDOM);
+    // const mediaCardDOM = mediaModel.getMediaCardDOM();
+    // portfolioSection.appendChild(mediaCardDOM);
   });
 }
 
 //opens the contact modal
 async function displayModalCall() {
   let btnModalOpen = document.getElementsByClassName("btnModalOpen")[0];
-  console.log(btnModalOpen);
   btnModalOpen.onclick = function () {
     displayModal();
     closeModalCall();
@@ -103,31 +102,37 @@ async function navigationLightboxCall(mediaList) {
 
 //toggle between liking or removing your like from media using innerHTML
 async function toggleLike() {
-  let mediaDivLikes = document.getElementsByClassName("divLikes");
-  let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
-  console.log(mediaDivLikes);
-  for (const divLike of mediaDivLikes) {
-    divLike.lastChild.addEventListener("click", (e) => {
-      divLike.lastChild.classList.toggle("liked");
-      if (divLike.lastChild.classList.contains("liked")) {
-        divLike.firstChild.innerHTML =
-          parseInt(divLike.firstChild.innerHTML) + 1;
-        totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + 1;
-      } else {
-        divLike.firstChild.innerHTML =
-          parseInt(divLike.firstChild.innerHTML) - 1;
-        totalLikes.innerHTML = parseInt(totalLikes.innerHTML) - 1;
-      }
+  // let mediaDivLikes = document.getElementsByClassName("divLikes");
 
-      console.log(divLike.firstChild);
+  let mediaIconLike = document.querySelectorAll(".likeIcon");
+  console.log(mediaIconLike);
+  for (const iLike of mediaIconLike) {
+    iLike.addEventListener("click", (e) => {
+      console.log("clicked");//TODO redo the like function
     });
   }
+
+  // let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
+  // for (const divLike of mediaDivLikes) {
+  //   divLike.lastChild.addEventListener("click", (e) => {
+  //     divLike.lastChild.classList.toggle("liked");
+  //     if (divLike.lastChild.classList.contains("liked")) {
+  //       divLike.firstChild.innerHTML =
+  //         parseInt(divLike.firstChild.innerHTML) + 1;
+  //       totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + 1;
+  //     } else {
+  //       divLike.firstChild.innerHTML =
+  //         parseInt(divLike.firstChild.innerHTML) - 1;
+  //       totalLikes.innerHTML = parseInt(totalLikes.innerHTML) - 1;
+  //     }
+  //   });
+  // }
 }
 
 //opens the sorting menu
 async function displayDropdownSort() {
   let btnSortOpen = document.getElementsByClassName("btnSortOpen")[0];
-  console.log(btnSortOpen);
+
   btnSortOpen.onclick = function () {
     displaySort();
     closeSortCall();
@@ -148,9 +153,8 @@ async function closeSortCall() {
 
 //runs the fetch and display functions
 async function init(intPhotographerId) {
+  //this is the extract of the photographer and their media's data
   const objPhotographerData = await getPhotographer(intPhotographerId);
-
-  console.log(objPhotographerData);
 
   displayData(objPhotographerData.photographers[0]);
   displayMedia(objPhotographerData.media);

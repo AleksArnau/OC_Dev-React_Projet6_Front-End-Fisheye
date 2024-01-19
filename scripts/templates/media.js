@@ -4,59 +4,92 @@ function mediaTemplate(data) {
   let path =
     data.image != null ? `assets/images/${image}` : `assets/videos/${video}`;
 
-  function getMediaCardDOM() {
-    const articleMedia = document.createElement("article");
-    articleMedia.setAttribute("class", "articleMedia");
+  const assetType = data.image != null ? "img" : "video";
 
-    const assetType = data.image != null ? "img" : "video";
+  const sessionsList = document.querySelector(".portfolio_section");
+  sessionsList.insertAdjacentHTML(
+    "beforeend",
+    `
+    <article class="photographerArticle">
+      <a src="${path}" class="mediaLink"
+        ><${assetType}
+          class="mediaImg"
+          src="${path}"
+          alt="${title}"
+      /></a>
+      <div class="mediaDetails">
+        <h3 class="mediaH3">${title}</h3>
+        <div class="divLikes">
+          <p class="mediaLikes">${likes}</p>
+          <i
+            class="fa-solid fa-heart likeIcon"
+            aria-label="likes"
+            aria-hidden="true"
+          ></i>
+        </div>
+      </div>
+    </article>
+    `
+  );
 
-    const linkMedia = document.createElement("a");
-    linkMedia.setAttribute("src", path);
-    linkMedia.setAttribute("class", "mediaLink");
+  let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
+  totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + likes;
 
-    const thumbnailMedia = document.createElement(assetType);
-    thumbnailMedia.setAttribute("class", "mediaImg");
-    thumbnailMedia.setAttribute("src", path);
-    thumbnailMedia.setAttribute("alt", `${title}`);
+  //old way of handling the media template
 
-    const divDetails = document.createElement("div");
-    divDetails.setAttribute("class", "mediaDetails");
+  // function getMediaCardDOM() {
+  //   const articleMedia = document.createElement("article");
+  //   articleMedia.setAttribute("class", "articleMedia");
 
-    const h3Title = document.createElement("h3");
-    h3Title.setAttribute("class", "mediaH3");
-    h3Title.textContent = title;
+  //   const assetType = data.image != null ? "img" : "video";
 
-    const divLikes = document.createElement("div");
-    divLikes.setAttribute("class", "divLikes");
+  //   const linkMedia = document.createElement("a");
+  //   linkMedia.setAttribute("src", path);
+  //   linkMedia.setAttribute("class", "mediaLink");
 
-    const pLikes = document.createElement("p");
-    pLikes.setAttribute("class", "mediaLikes");
-    pLikes.textContent = likes;
+  //   const thumbnailMedia = document.createElement(assetType);
+  //   thumbnailMedia.setAttribute("class", "mediaImg");
+  //   thumbnailMedia.setAttribute("src", path);
+  //   thumbnailMedia.setAttribute("alt", `${title}`);
 
-    //tallies the total likes
-    let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
-    totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + likes;
+  //   const divDetails = document.createElement("div");
+  //   divDetails.setAttribute("class", "mediaDetails");
 
-    // if (likes === 1) {
-    //   // only 1 like is singular
-    //   pLikes.textContent = likes + " like";
-    // } else {
-    //   pLikes.textContent = likes + " likes";
-    // }
+  //   const h3Title = document.createElement("h3");
+  //   h3Title.setAttribute("class", "mediaH3");
+  //   h3Title.textContent = title;
 
-    const iLikes = document.createElement("i");
-    iLikes.setAttribute("class", "fa-solid fa-heart likeIcon");
-    iLikes.setAttribute("aria-label", "likes");
+  //   const divLikes = document.createElement("div");
+  //   divLikes.setAttribute("class", "divLikes");
 
-    articleMedia.appendChild(linkMedia);
-    articleMedia.appendChild(divDetails);
-    linkMedia.appendChild(thumbnailMedia);
-    divDetails.appendChild(h3Title);
-    divDetails.appendChild(divLikes);
-    divLikes.appendChild(pLikes);
-    divLikes.appendChild(iLikes);
+  //   const pLikes = document.createElement("p");
+  //   pLikes.setAttribute("class", "mediaLikes");
+  //   pLikes.textContent = likes;
 
-    return articleMedia;
-  }
-  return { title, path, getMediaCardDOM };
+  //   //tallies the total likes
+  //   let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
+  //   totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + likes;
+
+  //   // if (likes === 1) {
+  //   //   // only 1 like is singular
+  //   //   pLikes.textContent = likes + " like";
+  //   // } else {
+  //   //   pLikes.textContent = likes + " likes";
+  //   // }
+
+  //   const iLikes = document.createElement("i");
+  //   iLikes.setAttribute("class", "fa-solid fa-heart likeIcon");
+  //   iLikes.setAttribute("aria-label", "likes");
+
+  //   articleMedia.appendChild(linkMedia);
+  //   articleMedia.appendChild(divDetails);
+  //   linkMedia.appendChild(thumbnailMedia);
+  //   divDetails.appendChild(h3Title);
+  //   divDetails.appendChild(divLikes);
+  //   divLikes.appendChild(pLikes);
+  //   divLikes.appendChild(iLikes);
+
+  //   return articleMedia;
+  // }
+  // return { title, path, getMediaCardDOM };
 }

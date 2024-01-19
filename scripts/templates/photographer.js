@@ -2,71 +2,123 @@ function photographerTemplate(data) {
   const { name, portrait, tagline, price, city, country, id } = data;
   const path = `assets/photographers/${portrait}`;
 
-  const divPictureFrame = document.createElement("div");
-  divPictureFrame.setAttribute("class", "photographerImgFrame");
+  //old way of doing picture
 
-  const imgPicture = document.createElement("img");
-  imgPicture.setAttribute("class", "photographerImg");
-  imgPicture.setAttribute("alt", `${data.name}'s portrait`);
-  imgPicture.setAttribute("src", path);
+  // const divPictureFrame = document.createElement("div");
+  // divPictureFrame.setAttribute("class", "photographerImgFrame");
 
-  divPictureFrame.appendChild(imgPicture);
+  // const imgPicture = document.createElement("img");
+  // imgPicture.setAttribute("class", "photographerImg");
+  // imgPicture.setAttribute("alt", `${name}'s portrait`);
+  // imgPicture.setAttribute("src", path);
 
-  const divPricing = document.createElement("div");
-  divPricing.setAttribute("class", "divPhotographerPricing");
+  // divPictureFrame.appendChild(imgPicture);
 
-  let totalLikes = 0; //TODO add dynamic likes
+  const divPhotographerPortrait = document.querySelector(
+    ".divPhotographerPortrait"
+  );
+  divPhotographerPortrait.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="photographerImgFrame">
+      <img class="photographerImg" alt="${name}'s portrait" src="${path}" />
+    </div>
+`
+  );
 
-  const divTotalLikes = document.createElement("div");
-  divTotalLikes.setAttribute("class", "divTotalLikes");
-  divPricing.appendChild(divTotalLikes);
+  const photographersDetails = document.querySelector(
+    ".divPhotographerDetails"
+  );
+  photographersDetails.insertAdjacentHTML(
+    "beforeend",
+    `
+      <div class="photographerDiv">
+          <h1 class="photographerH1">${name}</h1>
+          <div class="photographerDetails">
+            <p class="photographerLocation">${city}, ${country}</p>
+            <p class="photographerTagline">${tagline}</p>
+          </div>
+        </div>
+      `
+  );
 
-  const pTotalLikes = document.createElement("p");
-  pTotalLikes.setAttribute("class", "pTotalLikes");
-  pTotalLikes.textContent = totalLikes;
-  divTotalLikes.appendChild(pTotalLikes);
+  //Likes and pricing tab
 
-  const iHeart = document.createElement("i");
-  iHeart.setAttribute("class", "fa-solid fa-heart");
-  divTotalLikes.appendChild(iHeart);
+  let totalLikes = 0;
 
-  const pPricing = document.createElement("p");
-  pPricing.setAttribute("class", "pPricing");
-  pPricing.textContent = price + "€ / jour";
-  divPricing.appendChild(pPricing);
+  const divTotalLikes = document.querySelector(".divPhotographerPricing");
+  divTotalLikes.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="divPhotographerPricing">
+      <div class="divTotalLikes">
+        <p class="pTotalLikes">${totalLikes}</p>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <p class="pPricing">${price}€ / jour</p>
+    </div>
+    `
+  );
 
-  function getUserCardDOM() {
-    const divPhotographer = document.createElement("div");
-    divPhotographer.setAttribute("class", "photographerDiv");
+  //old way of doing likes
 
-    const h2Name = document.createElement("h1");
-    h2Name.setAttribute("class", "photographerH1");
-    h2Name.textContent = name;
+  // const divPricing = document.createElement("div");
+  // divPricing.setAttribute("class", "divPhotographerPricing");
 
-    const divDetails = document.createElement("div");
-    divDetails.setAttribute("class", "photographerDetails");
+  // const divTotalLikes = document.createElement("div");
+  // divTotalLikes.setAttribute("class", "divTotalLikes");
+  // divPricing.appendChild(divTotalLikes);
 
-    const pLocation = document.createElement("p");
-    pLocation.setAttribute("class", "photographerLocation");
-    pLocation.textContent = city + ", " + country;
+  // const pTotalLikes = document.createElement("p");
+  // pTotalLikes.setAttribute("class", "pTotalLikes");
+  // pTotalLikes.textContent = totalLikes;
+  // divTotalLikes.appendChild(pTotalLikes);
 
-    const pTagline = document.createElement("p");
-    pTagline.setAttribute("class", "photographerTagline");
-    pTagline.textContent = tagline;
+  // const iHeart = document.createElement("i");
+  // iHeart.setAttribute("class", "fa-solid fa-heart");
+  // divTotalLikes.appendChild(iHeart);
 
-    divPhotographer.appendChild(h2Name);
-    divPhotographer.appendChild(divDetails);
-    divDetails.appendChild(pLocation);
-    divDetails.appendChild(pTagline);
+  // const pPricing = document.createElement("p");
+  // pPricing.setAttribute("class", "pPricing");
+  // pPricing.textContent = price + "€ / jour";
+  // divPricing.appendChild(pPricing);
 
-    return divPhotographer;
-  }
+  //old way of generating DOM
 
-  return {
-    name,
-    path,
-    divPictureFrame,
-    divPricing,
-    getUserCardDOM,
-  };
+  // function getUserCardDOM() {
+  //   const divPhotographer = document.createElement("div");
+  //   divPhotographer.setAttribute("class", "photographerDiv");
+
+  //   const h2Name = document.createElement("h1");
+  //   h2Name.setAttribute("class", "photographerH1");
+  //   h2Name.textContent = name;
+
+  //   const divDetails = document.createElement("div");
+  //   divDetails.setAttribute("class", "photographerDetails");
+
+  //   const pLocation = document.createElement("p");
+  //   pLocation.setAttribute("class", "photographerLocation");
+  //   pLocation.textContent = city + ", " + country;
+
+  //   const pTagline = document.createElement("p");
+  //   pTagline.setAttribute("class", "photographerTagline");
+  //   pTagline.textContent = tagline;
+
+  //   divPhotographer.appendChild(h2Name);
+  //   divPhotographer.appendChild(divDetails);
+  //   divDetails.appendChild(pLocation);
+  //   divDetails.appendChild(pTagline);
+
+  //   return divPhotographer;
+  // }
+
+  // return {
+  //   name,
+  //   path,
+  //   divPictureFrame,
+  //   divPricing,
+  //   getUserCardDOM,
+  // };
+
+  return { name, path };
 }

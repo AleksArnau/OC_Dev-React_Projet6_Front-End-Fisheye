@@ -52,7 +52,6 @@ firstFocusableElement.focus();
 // À appeler lorsque la modale est ouverte
 trapFocus(document.querySelector('#maModal'));
 
-
 insertAdjacentHTML(position, text);
 
 <!DOCTYPE html>
@@ -83,4 +82,5 @@ insertAdjacentHTML(position, text);
             `)
         });
     </script>
+
 </html>
