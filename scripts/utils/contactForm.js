@@ -43,3 +43,5 @@ function handleEnter(e) {
     document.activeElement.click();
   }
 }
+
+export { displayModal, closeModal, handleEnter };

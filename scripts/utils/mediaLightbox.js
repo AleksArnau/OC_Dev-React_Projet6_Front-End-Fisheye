@@ -124,3 +124,12 @@ function previousLightbox(mediaList) {
   let mediaPath = createMediaPath(mediaList[newIndex]);
   displayMediaLightbox(mediaPath, mediaList[newIndex].title);
 }
+
+export {
+  displayLightbox,
+  closeLightbox,
+  displayMediaLightbox,
+  createMediaPath,
+  nextLightbox,
+  previousLightbox,
+};

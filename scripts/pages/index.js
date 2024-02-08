@@ -1,3 +1,5 @@
+import { photographersTemplate } from "../templates/photographers.js";
+
 //fetches photographers' data and picture/video properties
 async function getPhotographers() {
   return fetch("../data/photographers.json")
@@ -35,19 +37,14 @@ async function getPhotographers() {
 
 //displays all the photographers' info in the DOM from a set
 async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photographer_section");
-
   photographers.forEach((photographer) => {
-    const photographerModel = photographerTemplate(photographer);
-    // const userCardDOM = photographerModel.getUserCardDOM();
-    // photographersSection.appendChild(userCardDOM);
+    photographersTemplate(photographer);
   });
 }
 
 //runs the fetch and display functions
 async function init() {
   const { photographers } = await getPhotographers();
-
   displayData(photographers);
 }
 

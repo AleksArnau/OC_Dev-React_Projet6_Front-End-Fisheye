@@ -1,5 +1,17 @@
 # Base de code du projet P6 - Parcours Front-end
 
+# TODO
+make the template functions section agnostic (ex ".portfolio_section")
+properly sort the display init as one reusable function
+
+
+
+# TODO bugs
+1er display des video n'est pas indexé corectement
+
+
+
+
 ## Démarrer le projet
 
 Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.

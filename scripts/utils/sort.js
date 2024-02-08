@@ -1,4 +1,4 @@
-//displays the modal and starts the eventlisteners to close it
+//displays the sortmenu and puts focus on the Pop element
 function displaySort() {
   const sortMenu = document.getElementById("sortDropdown");
   sortMenu.style.display = "block";
@@ -6,7 +6,7 @@ function displaySort() {
   document.getElementById("dropBtnPop").focus();
 }
 
-//closes the modal and resets the aria properties
+//closes the sortmenu
 function closeSort() {
   const sortMenu = document.getElementById("sortDropdown");
   sortMenu.style.display = "none";
@@ -38,3 +38,5 @@ function sortDescending(list, sortByKey) {
   });
   return sortedList;
 }
+
+export { displaySort, closeSort, sortAscending, sortDescending };
