@@ -4,10 +4,17 @@
 make the template functions section agnostic (ex ".portfolio_section")
 properly sort the display init as one reusable function
 
+re implement the likes
+close the modal/sort tab when clicking away
+
+clean up comments and console logs
+
+
 
 
 # TODO bugs
 1er display des video n'est pas indexé corectement
+using a key closes the modal, can't write text
 
 
 

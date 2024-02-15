@@ -37,11 +37,11 @@ function closeModal() {
 }
 
 //handles enter keypresses as clicks
-function handleEnter(e) {
-  var keycode = e.keyCode ? e.keyCode : e.which;
-  if (keycode == "13") {
-    document.activeElement.click();
-  }
-}
+// function handleEnter(e) {
+//   var keycode = e.keyCode ? e.keyCode : e.which;
+//   if (keycode == "13") {
+//     document.activeElement.click();
+//   }
+// }
 
-export { displayModal, closeModal, handleEnter };
+export { displayModal, closeModal };
