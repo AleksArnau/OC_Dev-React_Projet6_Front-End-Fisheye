@@ -13,15 +13,6 @@ import {
 let url = new URL(location.href);
 let intPhotographerId = parseInt(url.searchParams.get("id"));
 
-// async function getPhotographerMedia() {
-//   let url = new URL(location.href);
-//   let intPhotographerId = parseInt(url.searchParams.get("id"));
-
-//   const objPhotographerData = await getPhotographer(intPhotographerId);
-
-//   return objPhotographerData.media;
-// }
-
 //fetches a single photographer's data and photo data
 async function getPhotographer(intPhotographerId) {
   return fetch("../data/photographers.json")
@@ -93,30 +84,22 @@ function navigationLightboxCall(mediaList) {
 //toggle between liking or removing your like from media using innerHTML
 async function toggleLike() {
   let mediaIconLike = document.querySelectorAll(".likeIcon");
-  console.log(mediaIconLike);
+  let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
   for (const iLike of mediaIconLike) {
     iLike.addEventListener("click", (e) => {
-      console.log(e);
-      console.log("clicked");
-      console.log(iLike); //TODO redo the like function
+      iLike.classList.toggle("liked");
+      const mediaLikes = iLike
+        .closest(".divLikes")
+        .querySelector(".mediaLikes");
+      if (iLike.classList.contains("liked")) {
+        mediaLikes.innerHTML = parseInt(mediaLikes.innerHTML) + 1;
+        totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + 1;
+      } else {
+        mediaLikes.innerHTML = parseInt(mediaLikes.innerHTML) - 1;
+        totalLikes.innerHTML = parseInt(totalLikes.innerHTML) - 1;
+      }
     });
   }
-
-  // let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
-  // for (const divLike of mediaDivLikes) {
-  //   divLike.lastChild.addEventListener("click", (e) => {
-  //     divLike.lastChild.classList.toggle("liked");
-  //     if (divLike.lastChild.classList.contains("liked")) {
-  //       divLike.firstChild.innerHTML =
-  //         parseInt(divLike.firstChild.innerHTML) + 1;
-  //       totalLikes.innerHTML = parseInt(totalLikes.innerHTML) + 1;
-  //     } else {
-  //       divLike.firstChild.innerHTML =
-  //         parseInt(divLike.firstChild.innerHTML) - 1;
-  //       totalLikes.innerHTML = parseInt(totalLikes.innerHTML) - 1;
-  //     }
-  //   });
-  // }
 }
 
 //opens the sorting menu
@@ -166,7 +149,7 @@ async function init(intPhotographerId) {
   displayModalCall();
   dropdownSort(arrayMedia);
   navigationLightboxCall(arrayMedia);
-  toggleLike(arrayMedia); //TODO redo the liking
+  toggleLike();
 }
 
 init(intPhotographerId);

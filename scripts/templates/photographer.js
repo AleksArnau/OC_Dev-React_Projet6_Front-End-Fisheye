@@ -33,7 +33,6 @@ function photographerTemplate(data) {
   );
 
   //Likes and pricing tab
-
   const divTotalLikes = document.querySelector(".divPhotographerPricing");
   divTotalLikes.insertAdjacentHTML(
     "beforeend",
