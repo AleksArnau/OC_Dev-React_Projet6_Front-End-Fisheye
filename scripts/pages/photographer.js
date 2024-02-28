@@ -132,6 +132,7 @@ async function closeSortCall(arrayMedia) {
       displayMedia(arrayMedia);
       navigationLightboxCall(arrayMedia);
       closeSort();
+      toggleLike();
     };
   }
 }

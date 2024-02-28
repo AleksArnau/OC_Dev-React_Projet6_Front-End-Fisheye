@@ -1,23 +1,25 @@
 # Base de code du projet P6 - Parcours Front-end
 
 # TODO
+
 make the template functions section agnostic (ex ".portfolio_section")
 properly sort the display init as one reusable function
 
-re implement the likes
 close the modal/sort tab when clicking away
 
-clean up comments and console logs
-
-
-
-
 # TODO bugs
+
 1er display des video n'est pas indexé corectement
+the video is also the only tabbable element
+cannot use enter to open an element anymore
+// handles enter keypresses as clicks
+function handleEnter(e) {
+var keycode = e.keyCode ? e.keyCode : e.which;
+if (keycode == "13") {
+document.activeElement.click();
+}
+}
 using a key closes the modal, can't write text
-
-
-
 
 ## Démarrer le projet
 

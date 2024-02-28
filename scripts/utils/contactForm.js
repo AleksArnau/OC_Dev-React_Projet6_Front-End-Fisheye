@@ -10,18 +10,14 @@ function displayModal() {
 
   document.querySelector(".btnModalClose").focus();
 
-  document.addEventListener(
-    "keydown",
-    (evt) => {
-      if (
-        evt.key === "Escape" ||
-        document.getElementById("main").getAttribute("aria-hidden") === "true"
-      ) {
-        closeModal();
-      }
-    },
-    { once: true }
-  );
+  document.addEventListener("keydown", (evt) => {
+    if (
+      evt.key === "Escape" &&
+      document.getElementById("main").getAttribute("aria-hidden") === "true"
+    ) {
+      closeModal();
+    }
+  });
 }
 
 //closes the modal and resets the aria properties
@@ -35,13 +31,5 @@ function closeModal() {
   document.getElementById("main").setAttribute("aria-hidden", "false");
   document.getElementById("contact_modal").setAttribute("aria-hidden", "true");
 }
-
-//handles enter keypresses as clicks
-// function handleEnter(e) {
-//   var keycode = e.keyCode ? e.keyCode : e.which;
-//   if (keycode == "13") {
-//     document.activeElement.click();
-//   }
-// }
 
 export { displayModal, closeModal };
