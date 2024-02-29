@@ -60,28 +60,30 @@
         </header>
         <form>
           <div>
-            <label for="contactFirstName">Prénom</label>
+            <label for="contactFirstName">Prénom*</label>
             <input
               class="modalInput"
               type="text"
               minlength="2"
               maxlength="20"
               id="contactFirstName"
+              required
             />
           </div>
           <div>
-            <label for="contactLastName">Nom</label>
+            <label for="contactLastName">Nom*</label>
             <input
               class="modalInput"
               type="text"
               id="contactLastName"
               minlength="2"
               maxlength="20"
+              required
             />
           </div>
           <div>
-            <label for="contactEmail">Email</label>
-            <input class="modalInput" type="email" id="contactEmail" />
+            <label for="contactEmail">Email*</label>
+            <input class="modalInput" type="email" id="contactEmail" required />
           </div>
           <div>
             <label for="contactMessage" minlength="2" maxlength="250"
@@ -94,7 +96,7 @@
               cols="50"
             ></textarea>
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="contact_button">Envoyer</button>
         </form>
       </div>
     </div>

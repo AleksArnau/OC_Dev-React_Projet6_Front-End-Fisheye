@@ -61,12 +61,38 @@ async function displayModalCall() {
   };
 }
 
-//closes the contact modal
+//handles closing the modal and the submit button
 async function closeModalCall() {
-  let btnModalClose = document.getElementsByClassName("btnModalClose")[0];
+  const btnModalClose = document.getElementsByClassName("btnModalClose")[0];
   btnModalClose.onclick = function () {
     closeModal();
   };
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  const form = document.querySelector("#contact_modal form");
+  form.addEventListener("submit", function (event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+    // Check if the form is valid using HTML
+    if (form.checkValidity()) {
+      const firstName = document.getElementById("contactFirstName").value;
+      const lastName = document.getElementById("contactLastName").value;
+      const email = document.getElementById("contactEmail").value;
+      const message = document.getElementById("contactMessage").value;
+
+      console.log("First Name:", firstName);
+      console.log("Last Name:", lastName);
+      console.log("Email:", email);
+      console.log("Message:", message);
+
+      form.reset();
+    }
+    closeModal();
+  });
 }
 
 //surveys every media to open the corresponding lightbox
@@ -112,7 +138,7 @@ async function dropdownSort(arrayMedia) {
   };
 }
 
-//closes the sorting menu after sorting
+//closes the sorting menu after sorting or with "esc"
 async function closeSortCall(arrayMedia) {
   let btnsSortClose = document.querySelectorAll(".dropBtn");
 
@@ -135,9 +161,6 @@ async function closeSortCall(arrayMedia) {
       toggleLike();
     };
   }
-  document.getElementById("main").onclick = function () {
-    closeSort();
-  };
   document.addEventListener("keydown", (evt) => {
     if (evt.key === "Escape") {
       closeSort();
