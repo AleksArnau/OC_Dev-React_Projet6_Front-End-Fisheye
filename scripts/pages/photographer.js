@@ -75,9 +75,7 @@ async function closeModalCall() {
 
   const form = document.querySelector("#contact_modal form");
   form.addEventListener("submit", function (event) {
-    // Prevent default form submission behavior
     event.preventDefault();
-    // Check if the form is valid using HTML
     if (form.checkValidity()) {
       const firstName = document.getElementById("contactFirstName").value;
       const lastName = document.getElementById("contactLastName").value;
@@ -101,7 +99,7 @@ function navigationLightboxCall(mediaList) {
   for (const media of mediaLink) {
     media.addEventListener("click", (e) => {
       let path = e.target.attributes.src.value;
-      let title = e.target.alt;
+      let title = e.target.dataset.title;
       displayLightbox(path, title, mediaList);
     });
   }

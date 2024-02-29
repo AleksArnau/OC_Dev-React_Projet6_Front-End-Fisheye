@@ -247,7 +247,7 @@ form div {
   cursor: pointer;
 }
 
-.mediaImg {
+.mediaType {
   height: 300px;
   width: 350px;
   object-fit: cover;

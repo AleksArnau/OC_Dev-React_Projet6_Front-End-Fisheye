@@ -3,23 +3,17 @@
 # TODO
 
 make the template functions section agnostic (ex ".portfolio_section")
-properly sort the display init as one reusable function
-
+properly sort the display init as one reusable function (I honestly forgot what I meant when I wrote this)
 close the modal/sort tab when clicking away
 
 # TODO bugs
 
-1er display des video n'est pas indexé corectement
-the video is also the only tabbable element
 cannot use enter to open an element anymore
 // handles enter keypresses as clicks
 function handleEnter(e) {
 var keycode = e.keyCode ? e.keyCode : e.which;
-if (keycode == "13") {
-document.activeElement.click();
+if (keycode == "13") {document.activeElement.click();}
 }
-}
-using a key closes the modal, can't write text
 
 ## Démarrer le projet
 
@@ -115,7 +109,7 @@ Le code est complet quand :
 
 ❒ Aucun bug n'est rencontré.
 
-❒ Aucune erreur n'est affichée dans la console.
+❒x Aucune erreur n'est affichée dans la console.
 
 Le code est pertinent quand :
 
@@ -143,7 +137,7 @@ Le dépôt de code est présentable quand :
 
 ❒x Le code est bien commenté, ce qui signifie que toute intention qui ne peut être immédiatement comprise en regardant le code lui-même peut être comprise en lisant les commentaires.
 
-❒x  Les identificateurs tels que les noms de classe, de méthode et de variable décrivent leur but avec exactitude et précision.
+❒x Les identificateurs tels que les noms de classe, de méthode et de variable décrivent leur but avec exactitude et précision.
 
 ❒x Les versions récentes de JavaScript sont utilisées sans caractéristiques dépréciées.
 
@@ -187,7 +181,7 @@ Le code est pertinent quand :
 
 ❒x Un bouton de contact cliquable sur la page du photographe lance une modale, qui comprend des champs pour le nom, l'e-mail et le message.
 
-❒ L'envoi du formulaire (via le bouton Envoyer) permet d’afficher le contenu des 3 champs dans la console.
+❒x L'envoi du formulaire (via le bouton Envoyer) permet d’afficher le contenu des 3 champs dans la console.
 
 Le code est présentable quand :
 
@@ -199,4 +193,4 @@ Le code est présentable quand :
 
 ❒x Le nombre total de photos aimées par un photographe est indiqué.
 
-❒x Toutes les pages demandées sont cohérentes avec les maquettes. 
+❒x Toutes les pages demandées sont cohérentes avec les maquettes.

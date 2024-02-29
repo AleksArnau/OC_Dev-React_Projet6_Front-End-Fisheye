@@ -13,9 +13,11 @@ function mediaTemplate(data) {
     <article class="photographerArticle">
       <a src="${path}" class="mediaLink"
         ><${assetType}
-          class="mediaImg"
+          class="mediaType"
           src="${path}"
           alt="${title}"
+          data-title="${title}"
+          tabindex="0"
       /></a>
       <div class="mediaDetails">
         <h3 class="mediaH3">${title}</h3>
