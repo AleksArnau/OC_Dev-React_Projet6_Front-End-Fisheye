@@ -135,6 +135,11 @@ async function closeSortCall(arrayMedia) {
       toggleLike();
     };
   }
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closeSort();
+    }
+  });
 }
 
 //runs the fetch and display functions
