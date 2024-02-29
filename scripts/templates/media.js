@@ -23,11 +23,12 @@ function mediaTemplate(data) {
         <h3 class="mediaH3">${title}</h3>
         <div class="divLikes">
           <p class="mediaLikes">${likes}</p>
-          <i
+          <span
             class="fa-solid fa-heart likeIcon"
             aria-label="likes"
             aria-hidden="true"
-          ></i>
+            tabindex="0"
+          ></span>
         </div>
       </div>
     </article>

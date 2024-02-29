@@ -58,7 +58,6 @@ async function displayModalCall() {
   let btnModalOpen = document.getElementsByClassName("btnModalOpen")[0];
   btnModalOpen.onclick = function () {
     const modal = displayModal();
-    console.log(modal);
     focusTrap(modal);
     closeModalCall();
   };
@@ -66,7 +65,7 @@ async function displayModalCall() {
 
 //handles closing the modal and the submit button
 async function closeModalCall() {
-  const btnModalClose = document.getElementsByClassName("btnModalClose")[0];
+  const btnModalClose = document.getElementById("btnModalClose");
   btnModalClose.onclick = function () {
     closeModal();
   };
@@ -132,8 +131,7 @@ async function toggleLike() {
 
 //opens the sorting menu
 async function dropdownSort(arrayMedia) {
-  let btnSortOpen = document.getElementsByClassName("btnSortOpen")[0];
-
+  let btnSortOpen = document.getElementById("btnSortOpen");
   btnSortOpen.onclick = function () {
     displaySort();
     closeSortCall(arrayMedia);
@@ -170,6 +168,19 @@ async function closeSortCall(arrayMedia) {
   });
 }
 
+// handles enter keypresses as clicks
+function handleEnter() {
+  const sectionSort = document.querySelector(".sectionSort");
+  document.addEventListener("keydown", function (event) {
+    const key = event.key;
+    if (key === "Enter") {
+      if (!sectionSort.contains(event.target)) {
+        document.activeElement.click();
+      }
+    }
+  });
+}
+
 //runs the fetch and display functions
 async function init(intPhotographerId) {
   //this is the extract of the photographer and their media's data
@@ -184,6 +195,7 @@ async function init(intPhotographerId) {
   dropdownSort(arrayMedia);
   navigationLightboxCall(arrayMedia);
   toggleLike();
+  handleEnter();
 }
 
 init(intPhotographerId);

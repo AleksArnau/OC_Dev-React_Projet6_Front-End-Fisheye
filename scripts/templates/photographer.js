@@ -23,7 +23,7 @@ function photographerTemplate(data) {
     "beforeend",
     `
       <div class="photographerDiv">
-          <h1 class="photographerH1">${name}</h1>
+          <h2 class="photographerH1">${name}</h2>
           <div class="photographerDetails">
             <p class="photographerLocation">${city}, ${country}</p>
             <p class="photographerTagline">${tagline}</p>
@@ -40,7 +40,7 @@ function photographerTemplate(data) {
     <div class="divPhotographerPricing">
       <div class="divTotalLikes">
         <p class="pTotalLikes">0</p>
-        <i class="fa-solid fa-heart"></i>
+        <span class="fa-solid fa-heart"></span>
       </div>
       <p class="pPricing">${price}€ / jour</p>
     </div>

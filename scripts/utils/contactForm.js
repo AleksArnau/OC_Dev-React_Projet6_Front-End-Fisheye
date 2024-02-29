@@ -28,8 +28,6 @@ function closeModal() {
   modal.style.display = "none";
   document.getElementById("body").classList.remove("noScroll");
 
-  document.querySelector(".btnModalOpen").focus();
-
   document.getElementById("main").setAttribute("aria-hidden", "false");
   document.getElementById("contact_modal").setAttribute("aria-hidden", "true");
 }

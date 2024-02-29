@@ -8,7 +8,7 @@ close the modal/sort tab when clicking away
 
 # TODO bugs
 
-cannot use enter to open an element anymore
+cannot use enter to open an element or exit a modal
 // handles enter keypresses as clicks
 function handleEnter(e) {
 var keycode = e.keyCode ? e.keyCode : e.which;
