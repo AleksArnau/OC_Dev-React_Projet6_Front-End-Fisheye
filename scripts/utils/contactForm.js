@@ -18,6 +18,8 @@ function displayModal() {
       closeModal();
     }
   });
+
+  return modal;
 }
 
 //closes the modal and resets the aria properties

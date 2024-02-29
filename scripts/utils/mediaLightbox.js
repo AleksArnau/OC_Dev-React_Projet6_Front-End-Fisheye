@@ -38,6 +38,8 @@ function displayLightbox(path, title, mediaList) {
   btnLeft.onclick = function () {
     previousLightbox(mediaList);
   };
+
+  return modal;
 }
 
 //closes the lightbox and turns back the aria labels

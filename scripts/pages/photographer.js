@@ -8,6 +8,7 @@ import {
   sortAscending,
   sortDescending,
 } from "../utils/sort.js";
+import { focusTrap } from "../utils/focusTrap.js";
 
 //getting the id from the url
 let url = new URL(location.href);
@@ -56,7 +57,9 @@ async function displayMedia(media) {
 async function displayModalCall() {
   let btnModalOpen = document.getElementsByClassName("btnModalOpen")[0];
   btnModalOpen.onclick = function () {
-    displayModal();
+    const modal = displayModal();
+    console.log(modal);
+    focusTrap(modal);
     closeModalCall();
   };
 }
@@ -100,7 +103,8 @@ function navigationLightboxCall(mediaList) {
     media.addEventListener("click", (e) => {
       let path = e.target.attributes.src.value;
       let title = e.target.dataset.title;
-      displayLightbox(path, title, mediaList);
+      const lightbox = displayLightbox(path, title, mediaList);
+      focusTrap(lightbox);
     });
   }
 }
