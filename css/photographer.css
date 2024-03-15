@@ -50,8 +50,10 @@
   left: 50%;
   bottom: 50%;
   transform: translate(-50%, 50%);
-  width: 699px;
-  height: 900px;
+  max-width: 699px;
+  width: 70%;
+  max-height: 850px;
+  height: 90%;
 }
 
 .modal header {
@@ -59,6 +61,7 @@
   align-items: flex-start;
   width: 100%;
   height: fit-content;
+  max-height: 20%;
 }
 
 .modal header img {
@@ -70,7 +73,7 @@
   font-family: DM Sans;
   font-size: 64px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
   white-space: pre-line;
   width: 100%;
@@ -92,6 +95,7 @@ form label {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  max-height: 8%;
 }
 
 form div {
