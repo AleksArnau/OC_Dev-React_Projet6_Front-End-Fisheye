@@ -161,14 +161,9 @@ async function closeSortCall(arrayMedia) {
       toggleLike();
     };
   }
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closeSort();
-    }
-  });
 }
 
-// handles enter keypresses as clicks
+// handles enter keypresses as clicks for the sorting menu
 function handleEnter() {
   const sectionSort = document.querySelector(".sectionSort");
   document.addEventListener("keydown", function (event) {

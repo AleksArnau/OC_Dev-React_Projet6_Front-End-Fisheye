@@ -30,6 +30,9 @@ function closeModal() {
 
   document.getElementById("main").setAttribute("aria-hidden", "false");
   document.getElementById("contact_modal").setAttribute("aria-hidden", "true");
+
+  document.querySelector(".btnModalOpen").focus();
+  console.log("what the fuck");
 }
 
 export { displayModal, closeModal };

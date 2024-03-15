@@ -3,13 +3,51 @@ function displaySort() {
   const sortMenu = document.getElementById("sortDropdown");
   sortMenu.style.display = "block";
 
-  document.getElementById("dropBtnPop").focus();
+  const btnSortOpen = document.getElementById("btnSortOpen");
+  btnSortOpen.setAttribute("aria-hidden", "true");
+  btnSortOpen.setAttribute("tabindex", "-1");
+
+  const dropBtns = sortMenu.querySelectorAll(".dropBtn");
+  dropBtns[0].focus();
+
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closeSort();
+    } else if (evt.key === "ArrowUp") {
+      let currentFocusedButton = document.activeElement;
+      let currentIndex = Array.from(dropBtns).indexOf(currentFocusedButton);
+
+      // Handle wrapping around to the last button on Up arrow
+      if (currentIndex === 0) {
+        currentIndex = dropBtns.length - 1;
+      } else {
+        currentIndex--;
+      }
+      dropBtns[currentIndex].focus();
+    } else if (evt.key === "ArrowDown") {
+      let currentFocusedButton = document.activeElement;
+      let currentIndex = Array.from(dropBtns).indexOf(currentFocusedButton);
+
+      // Handle wrapping around to the first button on Down arrow
+      if (currentIndex === dropBtns.length - 1) {
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+
+      dropBtns[currentIndex].focus();
+    }
+  });
 }
 
 //closes the sortmenu
 function closeSort() {
+  document.getElementById("btnSortOpen").setAttribute("aria-hidden", "false");
+  document.getElementById("btnSortOpen").setAttribute("tabindex", "0");
   const sortMenu = document.getElementById("sortDropdown");
   sortMenu.style.display = "none";
+
+  document.getElementById("btnSortOpen").focus();
 }
 
 function sortAscending(list, sortByKey) {
