@@ -28,8 +28,11 @@ https://www.figma.com/file/Q3yNeD7WTK9QHDldg9vaRl/UI-Design-FishEye-FR?node-id=0
 Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 J'utilise le plugin live serveur sur VScode pendant le developpement
 
+Taille d'ecran (prise sur le figma) 1440x1024
+Fonctionne sur 1920x1080
+Media query pour prendre en compte la modale sur les ecran 1366x768
+Le cahier des charges spécifie que le prototype n'a pas besoin d'être responsive mobile
+
 ESlint pour check le code 'npm run lint'
 
 AChecker en ligne pour l'accessibilité
-
-
