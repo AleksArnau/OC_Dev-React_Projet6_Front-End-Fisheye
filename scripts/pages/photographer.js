@@ -113,7 +113,7 @@ async function toggleLike() {
   let mediaIconLike = document.querySelectorAll(".likeIcon");
   let totalLikes = document.getElementsByClassName("pTotalLikes")[0];
   for (const iLike of mediaIconLike) {
-    iLike.addEventListener("click", (e) => {
+    iLike.addEventListener("click", () => {
       iLike.classList.toggle("liked");
       const mediaLikes = iLike
         .closest(".divLikes")
