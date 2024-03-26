@@ -1,3 +1,36 @@
+//Handle the keyboard navigation eventlistener of the sort menu
+function sortEventListener(evt) {
+  const dropBtns = document.querySelectorAll(".dropBtn");
+  if (evt.key === "Escape") {
+    closeSort(sortEventListener);
+  } else if (evt.key === "ArrowUp") {
+    evt.preventDefault();
+    let currentFocusedButton = document.activeElement;
+    let currentIndex = Array.from(dropBtns).indexOf(currentFocusedButton);
+
+    // Handle wrapping around to the last button on Up arrow
+    if (currentIndex === 0) {
+      currentIndex = dropBtns.length - 1;
+    } else {
+      currentIndex--;
+    }
+    dropBtns[currentIndex].focus();
+  } else if (evt.key === "ArrowDown") {
+    evt.preventDefault();
+    let currentFocusedButton = document.activeElement;
+    let currentIndex = Array.from(dropBtns).indexOf(currentFocusedButton);
+
+    // Handle wrapping around to the first button on Down arrow
+    if (currentIndex === dropBtns.length - 1) {
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
+
+    dropBtns[currentIndex].focus();
+  }
+}
+
 //displays the sortmenu and puts focus on the Pop element
 function displaySort() {
   const sortMenu = document.getElementById("sortDropdown");
@@ -7,37 +40,10 @@ function displaySort() {
   btnSortOpen.setAttribute("aria-hidden", "true");
   btnSortOpen.setAttribute("tabindex", "-1");
 
-  const dropBtns = sortMenu.querySelectorAll(".dropBtn");
+  const dropBtns = document.querySelectorAll(".dropBtn");
   dropBtns[0].focus();
 
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closeSort();
-    } else if (evt.key === "ArrowUp") {
-      let currentFocusedButton = document.activeElement;
-      let currentIndex = Array.from(dropBtns).indexOf(currentFocusedButton);
-
-      // Handle wrapping around to the last button on Up arrow
-      if (currentIndex === 0) {
-        currentIndex = dropBtns.length - 1;
-      } else {
-        currentIndex--;
-      }
-      dropBtns[currentIndex].focus();
-    } else if (evt.key === "ArrowDown") {
-      let currentFocusedButton = document.activeElement;
-      let currentIndex = Array.from(dropBtns).indexOf(currentFocusedButton);
-
-      // Handle wrapping around to the first button on Down arrow
-      if (currentIndex === dropBtns.length - 1) {
-        currentIndex = 0;
-      } else {
-        currentIndex++;
-      }
-
-      dropBtns[currentIndex].focus();
-    }
-  });
+  document.addEventListener("keydown", sortEventListener);
 }
 
 //closes the sortmenu
@@ -47,6 +53,7 @@ function closeSort() {
   const sortMenu = document.getElementById("sortDropdown");
   sortMenu.style.display = "none";
 
+  document.removeEventListener("keydown", sortEventListener);
   document.getElementById("btnSortOpen").focus();
 }
 
