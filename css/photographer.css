@@ -1,76 +1,458 @@
 #contact_modal {
-    display: none;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+  background-color: #fafafa;
+  height: 300px;
+  margin: 0 100px;
 }
 
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 69px;
+  flex-shrink: 0;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+  border-radius: 5px;
+  background-color: #db8876;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  padding: 30px;
+  max-width: 699px;
+  width: 70%;
+  max-height: 850px;
+  height: 90%;
 }
 
 .modal header {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+  max-height: 20%;
 }
 
 .modal header img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+  color: #000;
+  font-family: DM Sans;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  white-space: pre-line;
+  width: 100%;
+  margin: auto;
 }
 
 form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 form label {
-    color: #312E2E;
-    font-size: 36px;
+  color: #312e2e;
+  font-family: DM Sans;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 20px;
 }
 
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+.modalInput {
+  width: 100%;
+  max-height: 68px;
+  height: fit-content;
+  border: none;
+  border-radius: 5px;
+  font-family: DM Sans;
+  font-size: 36px;
+}
+
+#contactMessage {
+  max-height: 100%;
+  height: 170px;
+  width: 100%;
+}
+
+@media (max-width: 1400px) {
+  .modal {
+    height: 100%;
+    max-height: 700px;
+  }
+
+  .modal header h2 {
+    font-size: 42px;
+  }
+
+  form label {
+    font-size: 30px;
+  }
+
+  form div {
+    margin-bottom: 10px;
+  }
+
+  .modalInput {
+    font-size: 30px;
+  }
+}
+
+.photograph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  line-height: 0;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.photographerDiv .photographerH1 {
+  color: #d3573c;
+  font-family: DM Sans;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0em;
+}
+
+.photographerDiv .photographerDetails {
+  align-items: flex-start;
+}
+
+.photographerDiv .photographerLocation {
+  color: #901c1c;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.photographerDiv .photographerTagline {
+  color: #525252;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sectionSort {
+  padding-top: 9px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.sectionSort p {
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.menuSort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.menuSort button {
+  cursor: pointer;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #901c1c;
+  border: 0px;
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.menuSort button svg {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+#sortDropdown {
+  position: absolute;
+}
+
+.menuSort div {
+  display: none;
+}
+
+.portfolio_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin: 100px;
+}
+
+.articleMedia {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.linkImage {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mediaLink {
+  cursor: pointer;
+}
+
+.mediaType {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat, #c4c4c4;
+}
+
+.mediaDetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  line-height: 0;
+}
+
+.mediaH3 {
+  color: #d3573c;
+  font-size: 18px;
+  line-height: 0;
+}
+
+.divLikes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #901c1c;
+  text-align: right;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.mediaLikes {
+  color: #901c1c;
+  font-size: 24px;
+  margin: 0px;
+  margin-right: 6px;
+}
+
+.likeIcon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.liked {
+  color: red;
+}
+
+.divPhotographerPricing {
+  position: fixed;
+  right: 36px;
+  bottom: -21px;
+  width: 376px;
+  height: 89px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #db8876;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.divPhotographerPricing p,
+.divTotalLikes p {
+  color: #000;
+  text-align: center;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.divTotalLikes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divTotalLikes p {
+  margin-right: 6px;
+}
+
+.divTotalLikes i {
+  font-size: 24px;
+}
+
+#lightbox_modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  width: 90%;
+  height: 90%;
+  flex-shrink: 0;
+  background-color: white;
+}
+
+.btnLightboxClose {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.btnLightbox {
+  cursor: pointer;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.btnLeft {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.btnRight {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.divLightbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgLightbox {
+  max-width: 85%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+.divH3Lightbox {
+  padding-right: 40px;
+  padding-left: 40px;
+  border-radius: 10px;
+  position: absolute;
+  left: 60px;
+  bottom: -60px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.h3Lightbox {
+  color: #901c1c;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

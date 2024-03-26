@@ -1,37 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b4b7b20c23.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
   </head>
-  <body>
+  <body id="body">
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="./">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
+      /></a>
     </header>
-    <main id="main">
+    <main id="main" tabindex="-1">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="divPhotographerDetails"></div>
+        <button class="contact_button btnModalOpen" tabindex="0">
+          Contactez-moi
+        </button>
+        <div class="divPhotographerPortrait"></div>
       </div>
+      <div class="divPhotographerPricing"></div>
+      <div class="select_photograph"></div>
+      <section class="sectionSort">
+        <p>Trier par</p>
+        <div class="menuSort dropdown">
+          <button id="btnSortOpen" class="btnSortOpen">
+            Date
+            <img
+              src="assets/icons/dropdownClose.svg"
+              alt="dropdown menu button"
+            />
+          </button>
+          <div id="sortDropdown" class="sortDropdown">
+            <button id="dropBtnPop" class="dropBtn">Popularité</button>
+            <button id="dropBtnDate" class="dropBtn">Date</button>
+            <button id="dropBtnTitle" class="dropBtn">Titre</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="portfolio_section"></div>
+      <!-- why are the sections declared as div -->
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+      <div class="modal" role="dialog">
+        <header>
+          <h2 class="h2ModalPhotographerName">Contactez-moi</h2>
+          <img
+            id="btnModalClose"
+            class="btnModalClose"
+            src="assets/icons/close.svg"
+            aria-label="close"
+            tabindex="0"
+            alt="modal close button"
+          />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+        <form>
+          <div>
+            <label for="contactFirstName">Prénom*</label>
+            <input
+              class="modalInput"
+              type="text"
+              minlength="2"
+              maxlength="20"
+              id="contactFirstName"
+              required
+            />
+          </div>
+          <div>
+            <label for="contactLastName">Nom*</label>
+            <input
+              class="modalInput"
+              type="text"
+              id="contactLastName"
+              minlength="2"
+              maxlength="20"
+              required
+            />
+          </div>
+          <div>
+            <label for="contactEmail">Email*</label>
+            <input class="modalInput" type="email" id="contactEmail" required />
+          </div>
+          <div>
+            <label for="contactMessage" minlength="2" maxlength="250"
+              >Votre message</label
+            >
+            <textarea
+              class="modalInput"
+              id="contactMessage"
+              rows="1"
+              cols="50"
+            ></textarea>
+          </div>
+          <button type="submit" class="contact_button">Envoyer</button>
+        </form>
+      </div>
+    </div>
+    <div id="lightbox_modal">
+      <div class="lightbox" role="dialog">
+        <img
+          class="btnLightboxClose"
+          src="assets/icons/closeRed.svg"
+          aria-label="close"
+          tabindex="0"
+          alt="lightbox close button"
+        />
+        <div class="divLightbox">
+          <button class="btnLightbox btnLeft">
+            <img
+              src="assets/icons/btnLeft.svg"
+              alt="lightbox navigation left button"
+            />
+          </button>
+          <div id="divLightbox" class="divLightbox"><div></div></div>
+          <button class="btnLightbox btnRight">
+            <img
+              src="assets/icons/btnRight.svg"
+              alt="lightbox navigation right button"
+            />
+          </button>
+        </div>
+        <div class="divH3Lightbox">
+          <h3 id="h3Lightbox" class="h3Lightbox"></h3>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/pages/photographer.js" type="module"></script>
+    <!-- removed starting '/' on script links -->
   </body>
 </html>

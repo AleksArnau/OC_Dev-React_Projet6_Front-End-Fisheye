@@ -1,50 +1,102 @@
 @import url("photographer.css");
 
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+.noScroll {
+  overflow: hidden;
 }
 
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 70px;
 }
 
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.photographerArticle {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+.photographerLink {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+.photographerH2 {
+  color: #d3573c;
+  font-size: 36px;
+  line-height: 0;
+}
+
+.photographerImgFrame {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  fill: #c4c4c4;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.photographerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.photographerDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.photographerDetails p {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+.photographerLocation {
+  color: #901c1c;
+  font-size: 19px;
+}
+
+.photographerTagline {
+  color: #000;
+  font-size: 16px;
+}
+
+.photographerPrice {
+  color: #757575;
+  font-size: 12px;
 }
