@@ -56,7 +56,7 @@ async function displayMedia(media) {
 //opens the contact modal
 async function displayModalCall() {
   let btnModalOpen = document.getElementsByClassName("btnModalOpen")[0];
-  btnModalOpen.onclick = function () {
+  btnModalOpen.onclick = () => {
     const modal = displayModal();
     focusTrap(modal);
     closeModalCall();
@@ -66,7 +66,7 @@ async function displayModalCall() {
 //handles closing the modal and the submit button
 async function closeModalCall() {
   const btnModalClose = document.getElementById("btnModalClose");
-  btnModalClose.onclick = function () {
+  btnModalClose.onclick = () => {
     closeModal();
   };
   document.addEventListener("keydown", (evt) => {
@@ -76,7 +76,7 @@ async function closeModalCall() {
   });
 
   const form = document.querySelector("#contact_modal form");
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (form.checkValidity()) {
       const firstName = document.getElementById("contactFirstName").value;
@@ -132,7 +132,7 @@ async function toggleLike() {
 //opens the sorting menu
 async function dropdownSort(arrayMedia) {
   let btnSortOpen = document.getElementById("btnSortOpen");
-  btnSortOpen.onclick = function () {
+  btnSortOpen.onclick = () => {
     displaySort();
     closeSortCall(arrayMedia);
   };
@@ -144,21 +144,44 @@ async function closeSortCall(arrayMedia) {
 
   for (let i = 0; i < btnsSortClose.length; i++) {
     let btnSortClose = btnsSortClose[i];
-    btnSortClose.onclick = function () {
+    btnSortClose.onclick = () => {
+      let menuSort = document.querySelector(".menuSort");
+      let btnSortOpen = document.getElementById("btnSortOpen");
+      btnSortOpen.remove();
       if (i == 0) {
         arrayMedia = sortDescending(arrayMedia, "likes");
-        document.querySelector(".btnSortOpen").innerHTML = "Popularité v";
+        menuSort.insertAdjacentHTML(
+          "afterbegin",
+          `<button id="btnSortOpen" class="btnSortOpen" data-currentsortid="dropBtnPop">
+            Popularité
+            <img src="assets/icons/dropdownClose.svg" alt="dropdown menu button">
+          </button>`
+        );
       } else if (i == 1) {
         arrayMedia = sortAscending(arrayMedia, "date");
-        document.querySelector(".btnSortOpen").innerHTML = "Date v";
+        menuSort.insertAdjacentHTML(
+          "afterbegin",
+          `<button id="btnSortOpen" class="btnSortOpen" data-currentsortid="dropBtnDate">
+            Date
+            <img src="assets/icons/dropdownClose.svg" alt="dropdown menu button">
+          </button>`
+        );
       } else if (i == 2) {
         arrayMedia = sortAscending(arrayMedia, "title");
-        document.querySelector(".btnSortOpen").innerHTML = "Titre v";
+        menuSort.insertAdjacentHTML(
+          "afterbegin",
+          `<button id="btnSortOpen" class="btnSortOpen" data-currentsortid="dropBtnTitle">
+            Titre
+            <img src="assets/icons/dropdownClose.svg" alt="dropdown menu button">
+          </button>`
+        );
       }
+
       displayMedia(arrayMedia);
       navigationLightboxCall(arrayMedia);
       closeSort();
       toggleLike();
+      dropdownSort(arrayMedia);
     };
   }
 }
@@ -166,7 +189,7 @@ async function closeSortCall(arrayMedia) {
 // handles enter keypresses as clicks for the sorting menu
 function handleEnter() {
   const sectionSort = document.querySelector(".sectionSort");
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener("keydown", (event) => {
     const key = event.key;
     if (key === "Enter") {
       if (!sectionSort.contains(event.target)) {
