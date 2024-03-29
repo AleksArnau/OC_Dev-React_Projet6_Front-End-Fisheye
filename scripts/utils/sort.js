@@ -1,5 +1,4 @@
 const buttonIds = ["dropBtnPop", "dropBtnDate", "dropBtnTitle"];
-
 //Handle the keyboard navigation eventlistener of the sort menu
 function sortEventListener(evt) {
   const dropBtns = document.querySelectorAll(".dropBtn");
@@ -53,7 +52,7 @@ function displaySort() {
       button.innerHTML += `<img src="assets/icons/dropdownClose.svg" alt="dropdown menu button">`;
     }
   });
-
+  
   btnSortOpen.setAttribute("aria-hidden", "true");
   btnSortOpen.setAttribute("tabindex", "-1");
 
@@ -68,7 +67,6 @@ function closeSort() {
   document.getElementById("btnSortOpen").setAttribute("aria-hidden", "false");
   document.getElementById("btnSortOpen").setAttribute("tabindex", "0");
   const sortMenu = document.getElementById("sortDropdown");
-  console.log(sortMenu);
   sortMenu.style.display = "none";
 
   document.removeEventListener("keydown", sortEventListener);

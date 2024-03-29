@@ -176,7 +176,7 @@ async function closeSortCall(arrayMedia) {
           </button>`
         );
       }
-
+      
       displayMedia(arrayMedia);
       navigationLightboxCall(arrayMedia);
       closeSort();

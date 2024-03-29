@@ -11,7 +11,6 @@ function lightboxEventListener(evt, mediaList) {
     previousLightbox(mediaList);
   }
 }
-
 //displays the lightbox modal and turns on the eventlisteners
 function displayLightbox(path, title, mediaList) {
   const modal = document.getElementById("lightbox_modal");
