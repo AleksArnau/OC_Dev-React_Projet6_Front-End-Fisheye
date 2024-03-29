@@ -1,3 +1,4 @@
+const buttonIds = ["dropBtnPop", "dropBtnDate", "dropBtnTitle"];
 //Handle the keyboard navigation eventlistener of the sort menu
 function sortEventListener(evt) {
   const dropBtns = document.querySelectorAll(".dropBtn");
@@ -37,6 +38,21 @@ function displaySort() {
   sortMenu.style.display = "block";
 
   const btnSortOpen = document.getElementById("btnSortOpen");
+  let currentSort = btnSortOpen.dataset.currentsortid;
+
+  buttonIds.forEach((id) => {
+    const button = document.getElementById(id);
+
+    const existingImage = button.querySelector("img");
+    if (existingImage) {
+      existingImage.remove();
+    }
+
+    if (id === currentSort) {
+      button.innerHTML += `<img src="assets/icons/dropdownClose.svg" alt="dropdown menu button">`;
+    }
+  });
+  
   btnSortOpen.setAttribute("aria-hidden", "true");
   btnSortOpen.setAttribute("tabindex", "-1");
 
@@ -59,7 +75,7 @@ function closeSort() {
 
 function sortAscending(list, sortByKey) {
   const sortedList = Array.from(list);
-  sortedList.sort(function (a, b) {
+  sortedList.sort((a, b) => {
     if (a[sortByKey] === null) return 1; //null at the end
     if (b[sortByKey] === null) return -1;
     if (a[sortByKey] === b[sortByKey]) return 0;
@@ -73,7 +89,7 @@ function sortAscending(list, sortByKey) {
 //Sorts a list of objects in descending order by a key, values can be number or string
 function sortDescending(list, sortByKey) {
   const sortedList = Array.from(list);
-  sortedList.sort(function (b, a) {
+  sortedList.sort((b, a) => {
     if (a[sortByKey] === null) return 1; //null at the start
     if (b[sortByKey] === null) return -1;
     if (a[sortByKey] === b[sortByKey]) return 0;

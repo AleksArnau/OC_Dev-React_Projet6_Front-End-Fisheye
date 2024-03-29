@@ -1,3 +1,16 @@
+//Variable to store the eventListener reference
+let lightboxKeyListener;
+
+//adds the lightbox keyboard nav eventListener and props it for easy removal
+function lightboxEventListener(evt, mediaList) {
+  if (evt.key === "Escape") {
+    closeLightbox();
+  } else if (evt.key === "ArrowRight") {
+    nextLightbox(mediaList);
+  } else if (evt.key == "ArrowLeft") {
+    previousLightbox(mediaList);
+  }
+}
 //displays the lightbox modal and turns on the eventlisteners
 function displayLightbox(path, title, mediaList) {
   const modal = document.getElementById("lightbox_modal");
@@ -14,28 +27,21 @@ function displayLightbox(path, title, mediaList) {
 
   document.querySelector(".btnLightboxClose").focus();
 
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closeLightbox();
-    } else if (evt.key === "ArrowRight") {
-      nextLightbox(mediaList);
-    } else if (evt.key == "ArrowLeft") {
-      previousLightbox(mediaList);
-    }
-  });
+  lightboxKeyListener = (evt) => lightboxEventListener(evt, mediaList);
+  document.addEventListener("keydown", lightboxKeyListener);
 
   let btnLightboxClose = document.getElementsByClassName("btnLightboxClose")[0];
-  btnLightboxClose.onclick = function () {
+  btnLightboxClose.onclick = () => {
     closeLightbox();
   };
 
   let btnRight = document.getElementsByClassName("btnRight")[0];
-  btnRight.onclick = function () {
+  btnRight.onclick = () => {
     nextLightbox(mediaList);
   };
 
   let btnLeft = document.getElementsByClassName("btnLeft")[0];
-  btnLeft.onclick = function () {
+  btnLeft.onclick = () => {
     previousLightbox(mediaList);
   };
 
@@ -50,6 +56,8 @@ function closeLightbox() {
 
   document.getElementById("main").setAttribute("aria-hidden", "false");
   document.getElementById("lightbox_modal").setAttribute("aria-hidden", "true");
+
+  document.removeEventListener("keydown", lightboxKeyListener);
 }
 
 //displays the media in the lightbox
